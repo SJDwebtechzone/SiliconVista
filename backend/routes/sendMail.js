@@ -20,7 +20,7 @@ const sendMail = async (userEmail , name , message , phone , course , duration) 
 
     const adminMail = {
         from: "SiliconVista Enquiries",
-        to: "info@siliconvista.in",
+        to: "admin@siliconvista.in",
         replyTo: userEmail, 
         subject: "New Enquiry from Website",
         html: `
