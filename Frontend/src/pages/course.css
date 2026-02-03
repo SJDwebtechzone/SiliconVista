@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farro:wght@300;400;500;700&family=Onest:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.course{
+    padding-top: 60px;
+}
+
+.courseHero{
+    width: 100%;
+    height: 450px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    background:#54615f  url("../assets/courseHero.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+
+    filter: hue-rotate(-30deg) saturate(0.9) brightness(0.95);
+}
+
+
+.heroContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.heroContent h1{
+    color:#ff20f4;
+    font-family: "poppins";
+    font-size: 40px;
+    font-weight: 600;
+    padding-top: 150px;
+
+}
+
+.courseOutline{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: 820px;
+    padding-top: 30px;
+}
+
+.courseDetails{
+    background: linear-gradient(
+            135deg,
+            #00C6A0,
+            #00D0E8,
+            #2196F3,
+            #a189b6
+    );
+    border-radius: 20px;
+    margin: 20px 0px 150px 20px;
+    padding: 30px;
+}
+
+.courseDetails h1{
+    margin-top: 15px;
+    color: black;
+    font-family: 'poppins';
+    font-weight: 600;
+    padding-left: 10px;
+    font-size: 28px;
+}
+
+.courseDetails h2{
+    color: black;
+    font-family: "poppins";
+    font-weight: 600;
+    padding-left: 10px;
+    font-size: 28px;   
+}
+
+.courseDetails p{
+    color: beige;
+    font-family: 'poppins';
+    font-size: 16px;
+    line-height: 30px ;
+    padding-left: 10px;
+    text-align: justify;
+}
+
+
+.courseDetails li{
+    display:flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 16px;
+    font-family: "poppins";
+    color: white;
+    text-align: justify;
+}
+
+.courseDetails li::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    transform: rotate(45deg);
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.courseDetails li:hover ,
+.courseFeatures li:hover{
+    transition: transform 0.3s ease;
+    transform: translateX(20px);
+}
+
+.courseFeatures{
+    margin: 20px 0px 150px 30px;
+    padding: 30px;
+}
+
+.courseFeatures h1{
+    font-family: 'poppins';
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 30px;
+}
+
+.courseFeatures p{
+    font-family: "poppins";
+    font-weight: 600;
+    padding-left: 20px;
+    font-size: 18px; 
+    text-align: justify;
+}
+
+.courseFeatures h3{
+    font-family: "poppins";
+    font-weight: 600;
+    padding-left: 20px;
+    font-size: 18px; 
+}
+
+.durationli{
+    padding-left: 35px;
+    font-size: 14px;
+    list-style: none;
+    font-family: 'poppins';
+    color: #73897f;
+}
+
+.durationli li::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color:#000000;
+    transform: rotate(45deg);
+    margin-top: 6px;
+}
+
+.courseFeatures ul{
+    list-style: none;
+}
+
+.courseFeatures li{
+    display:flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 16px;
+    font-family: "poppins";
+    color: black;
+}
+
+.courseFeatures li::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color:#000000;
+    transform: rotate(45deg);
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.courseContent{
+  height: 100%;
+  margin: 50px;
+  box-shadow: 0px 0px 5px 5px #beb8b8;
+  display: flex;
+  flex-direction: column;
+  font-family: "poppins";
+  gap: 40px;
+  padding-bottom: 100px;
+  border-radius: 20px;
+}
+
+.courseContent h1{
+  padding-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 32px;
+  color:#00C6A0;
+}
+
+.courseBlock{
+  position: relative;
+  padding: 16px 40px;
+}
+
+
+.courseHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.courseBlock::after{
+  content: "";
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 0;
+  height: 1px;
+  background: rgba(63,163,77,0.4);
+}
+
+
+.modules{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+
+.modules.active{
+  max-height: 500px; 
+  margin-top: 16px;
+}
+
+/* module list */
+.modules ul{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* evenly spread columns */
+  gap: 12px 24px;
+  list-style: none;
+  padding-left: 0;
+}
+
+
+.modules li{
+  display: flex;
+  gap: 10px;
+  font-family: "poppins";
+  font-size: 15px;
+  color: #073738;
+  padding-left: 10px;
+}
+
+
+.modules li::before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #00C6A0;
+  transform: rotate(45deg);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.more{
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #00C6A0;
+}
+
+.courseBlock .more{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+
+.courseBlock:hover .more{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+@media (max-width: 768px) {
+
+*{
+  box-sizing: border-box;
+}
+
+  /* PAGE OFFSET */
+  .course{
+    padding-top: 56px; /* navbar height */
+  }
+
+  /* ---------- HERO ---------- */
+
+  .courseHero{
+    height: 300px;
+    box-shadow: none;
+    background-position: center;
+  }
+
+  .heroContent h1{
+    font-size: 24px;
+    padding-top: 120px;
+    text-align: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #C9FFD0;
+  }
+
+  /* ---------- COURSE OUTLINE ---------- */
+
+  .courseOutline{
+    grid-template-columns: 1fr; /* 🔑 stack vertically */
+    height: auto;
+    padding: 0 12px;
+  }
+
+  /* ---------- COURSE DETAILS ---------- */
+
+  .courseDetails{
+    margin: 20px 0;
+    padding: 20px 18px;
+    border-radius: 8px;
+  }
+
+  .courseDetails h1{
+    font-size: 22px;
+    padding-left: 0;
+  }
+
+  .courseDetails h2{
+    font-size: 20px;
+    padding-left: 0;
+    margin-top: 16px;
+  }
+
+  .courseDetails p{
+    font-size: 14px;
+    line-height: 24px;
+    padding-left: 0;
+  }
+
+.courseDetails ul{
+  padding-left: 6px;   /* 🔽 reduce from default ~40px */
+  margin-left: 0;
+}
+
+  .courseDetails li{
+    font-size: 14px;
+    padding: 6px 0px;
+  }
+
+
+
+  /* ---------- COURSE FEATURES ---------- */
+
+  .courseFeatures{
+    margin: 20px 0 60px;
+    padding: 0 4px;
+  }
+
+  .courseFeatures h1{
+    font-size: 22px;
+    padding-left: 0;
+  }
+
+  .courseFeatures p,
+  .courseFeatures h3{
+    font-size: 15px;
+    padding-left: 0;
+  }
+
+  .courseFeatures ul{
+    padding-left: 0;
+  }
+
+  .courseFeatures li{
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .innerList{
+    margin-left: 24px;   
+    margin-top: 6px;
+    }
+
+    .innerList li{
+    font-size: 14px;
+    padding: 4px 0;
+    }
+
+
+  .courseFeatures li:hover{
+    transform: none;
+  }
+
+  /* ---------- DURATION LIST ---------- */
+
+  .durationli{
+    padding-left: 0;
+    font-size: 14px;
+  }
+
+  .durationli li{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* ---------- INNER LIST ---------- */
+
+  .innerList{
+    padding-left: 20px;
+  }
+
+    /* ---------- COURSE CONTENT CONTAINER ---------- */
+
+  .courseContent{
+    margin: 12px;
+    padding-bottom: 60px;
+    gap: 24px;
+  }
+
+  .courseContent h1{
+    font-size: 26px;
+  }
+
+  /* ---------- COURSE BLOCK ---------- */
+
+  .courseBlock{
+    padding: 14px 16px;   /* reduce side padding */
+  }
+
+  .courseBlock::after{
+    left: 16px;
+    right: 16px;
+  }
+
+  /* ---------- HEADER ROW ---------- */
+
+  .courseHeader{
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .courseTitle{
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* hide hover-based "more" on touch devices */
+  .courseBlock .more{
+    opacity: 1;
+    visibility: visible;
+    font-size: 10px;
+  }
+
+  /* ---------- MODULES (ACCORDION) ---------- */
+
+  .modules.active{
+    margin-top: 12px;
+  }
+
+  .modules ul{
+    grid-template-columns: 1fr;   /* single column */
+    gap: 10px;
+  }
+
+  .modules li{
+    font-size: 14px;
+  }
+
+  .modules li::before{
+    width: 7px;
+    height: 7px;
+    margin-top: 6px;
+  }
+
+}

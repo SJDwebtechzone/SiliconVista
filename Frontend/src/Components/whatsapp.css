@@ -1,0 +1,92 @@
+
+
+.whatsApp_float{
+    position:fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.whatsApp_float:hover{
+    transform: scale(1.1);
+}
+
+
+.whatsApp_float::after {
+  content: "Whatsapp us!!";
+  position: absolute;
+  right: 70px;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+
+}
+
+.whatsApp_float:hover::after {
+  visibility: visible;
+}
+
+/* Call Button */
+
+.call-btn{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    left: 25px;
+    border-radius: 10px;
+    box-shadow:  2px 2px 5px rgba(0,0,0,0.3) ;
+    background-color: white;
+    color:#00C6A0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;    
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.call-btn::after{
+  content: "Copy number";
+  font-family: 'poppins';
+  position: absolute;
+  left: 70px;
+  background-color: white;
+  color: black;
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  visibility: hidden;
+  box-shadow:  2px 2px 5px rgba(0,0,0,0.3) ;
+}
+
+.call-btn:hover::after {
+  visibility: visible;
+}
+
+
+
+@media(max-width:768px){
+    .whatsApp_float , 
+    .call-btn{
+        bottom: 50px;
+        right: 10px;
+    }
+}
