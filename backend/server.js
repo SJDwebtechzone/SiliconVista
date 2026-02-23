@@ -4,22 +4,36 @@ dotenv.config();
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
+import sender from "./routes/sender.js";
 
-import sender from './routes/sender.js';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
+
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: ["https://siliconvista.in", "http://siliconvista.in"],
+  methods: ["GET", "POST"]
+}));
 
-const PORT = 8080;
+// Serve frontend
+app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
-app.listen(PORT , (req , res) => {
-    console.log(`Server listening on the PORT: http://localhost:${PORT} `);
+// API route
+app.use("/contact", sender);
+
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../Frontend/dist", "index.html"));
 });
 
-app.get('/' , (req , res) =>{
-    res.send("Hello from server!!");
-})
 
-app.use("/contact" , sender);
+
+const PORT = 8080;
+app.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
+});
+

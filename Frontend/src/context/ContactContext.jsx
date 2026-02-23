@@ -13,7 +13,7 @@ export const ContactProvider = ({ children }) => {
         setSuccessMsg("");
         setErrorMsg("");
 
-        const url = "http://localhost:8080/contact";
+        const url = "/contact";
 
         try{
             const res = await axios.post(url,formData);
