@@ -5,7 +5,7 @@ import './whatsapp.css';
 
 const WhatsappIcon = () => {
 
-    const phone = "916369498025";
+    const phone = "917904513540";
     const message = "Hi, I want to know about VLSI courses";
 
     const whatsappDesktop = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}`;
