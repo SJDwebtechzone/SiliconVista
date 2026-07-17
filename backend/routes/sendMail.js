@@ -19,8 +19,8 @@ const sendMail = async (userEmail , name , message , phone , course , duration) 
   });
 
     const adminMail = {
-        from: "SiliconVista Enquiries",
-        to: "admin@siliconvista.in",
+        from: `"Silicon Vista Enquiries" <${process.env.MAIL_USERNAME}>`,
+        to: process.env.MAIL_USERNAME,
         replyTo: userEmail, 
         subject: "New Enquiry from Website",
         html: `

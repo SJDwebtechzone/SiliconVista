@@ -56,12 +56,14 @@ const HeroCarousel = () => {
           .hero-banner-title {
             margin: 0;
             font-size: 4rem;
-            font-weight: bold;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
           }
           .hero-banner-subtitle {
             font-size: 1.5rem;
-            font-weight: bold;
-            line-height: 1.5;
+            font-weight: 500;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
           }
           .hero-banner-bg {
             padding-left: 50px;

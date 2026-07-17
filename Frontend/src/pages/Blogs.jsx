@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../Components/Footer';
 import { FaCalendarAlt, FaUser, FaClock, FaBookOpen } from 'react-icons/fa';
+import bannerImg from '../assets/blog-banner.png';
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -27,23 +29,67 @@ const Blogs = () => {
 
   return (
     <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+
+      <Helmet>
+        <title>VLSI Blogs & Semiconductor News | Silicon Vista</title>
+        <meta name="description" content="Read the latest VLSI blogs, semiconductor news, and chip design articles. Get expert career guidance and verification tutorials from Silicon Vista." />
+        <meta name="keywords" content="VLSI Blogs, Semiconductor News, Chip Design Articles, Verification Tutorials, Career Guidance, Latest Semiconductor Technology" />
+        <link rel="canonical" href="https://siliconvista.com/blogs" />
+
+        {/* OpenGraph */}
+        <meta property="og:title" content="VLSI Blogs & Semiconductor News | Silicon Vista" />
+        <meta property="og:description" content="Read the latest VLSI blogs, semiconductor news, and chip design articles. Get expert career guidance and verification tutorials." />
+        <meta property="og:url" content="https://siliconvista.com/blogs" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="VLSI Blogs & Semiconductor News | Silicon Vista" />
+        <meta name="twitter:description" content="Read the latest VLSI blogs, semiconductor news, and chip design articles. Get expert career guidance and verification tutorials." />
+      </Helmet>
       
       {/* Hero Section */}
       <div style={{ 
-        background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)', 
-        padding: '100px 5% 60px', 
+        background: `linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(${bannerImg}) center/cover no-repeat`,
+        height: '450px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '0 5%',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginTop: '60px' // Adjust for navbar
       }}>
-        {/* Subtle decorative background elements */}
-        <div style={{ position: 'absolute', top: '-50px', left: '-50px', width: '200px', height: '200px', background: 'rgba(255, 255, 255, 0.15)', borderRadius: '50%', filter: 'blur(40px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '300px', height: '300px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
         
-        <h1 style={{ color: '#fff', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '800', marginBottom: '20px', position: 'relative', zIndex: 1, textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-          Silicon Vista <span style={{ color: '#fff', opacity: 0.9 }}>Insights</span>
+        <h1 style={{ 
+          color: '#ffffff', 
+          fontFamily: '"Poppins", sans-serif',
+          fontSize: '52px',
+          fontWeight: 800,
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+          textShadow: '0 4px 15px rgba(0,0,0,0.5)',
+          marginBottom: '20px', 
+          position: 'relative', 
+          zIndex: 1
+        }}>
+          Silicon Vista <span style={{ color: '#ffffff' }}>Insights</span>
         </h1>
-        <p style={{ color: '#fff', fontSize: 'clamp(1rem, 2vw, 1.2rem)', maxWidth: '700px', margin: '0 auto', position: 'relative', zIndex: 1, textShadow: '0 1px 3px rgba(0,0,0,0.3)', fontWeight: '500' }}>
+        <p style={{ 
+          color: '#fff', 
+          fontFamily: '"Poppins", sans-serif',
+          fontSize: '1.5rem', 
+          fontWeight: 500,
+          letterSpacing: '1px',
+          maxWidth: '700px', 
+          margin: '0 auto', 
+          position: 'relative', 
+          zIndex: 1, 
+          textShadow: '0 4px 15px rgba(0,0,0,0.5)', 
+          textAlign: 'center' 
+        }}>
           Discover the latest trends in VLSI, semiconductor engineering, career advice, and industry news written by our expert mentors.
         </p>
       </div>
@@ -117,11 +163,11 @@ const Blogs = () => {
                     {blog.author && <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}><FaUser color="#00C6A0" /> {blog.author}</span>}
                   </div>
                   
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: '700', color: '#112240', marginBottom: '15px', lineHeight: '1.4' }}>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#112240', marginBottom: '15px', lineHeight: '1.4' }}>
                     {blog.title}
                   </h3>
                   
-                  <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '25px', flex: 1 }}>
+                  <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '25px', flex: 1, textAlign: 'justify' }}>
                     {blog.description ? blog.description : (blog.content && blog.content.substring(0, 100) + '...')}
                   </p>
                   

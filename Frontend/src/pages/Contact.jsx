@@ -7,6 +7,7 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaPaperPlane } from 'react-icon
 
 import Footer from "../Components/Footer.jsx";
 import { useContact } from "../context/ContactContext.jsx";
+import ParticleBackground from "../Components/ParticleBackground.jsx";
 
 const Contact = () => {
     const { sendEnquiry, loading, successMsg, errorMsg } = useContact();
@@ -45,56 +46,53 @@ const Contact = () => {
         <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
             <Helmet>
-                <title>Contact Us | SiliconVista – VLSI Training & Internship Queries</title>
-                <meta 
-                    name="description" 
-                    content="Contact SiliconVista for VLSI course details, internship programs, fees, and enrollment queries. Available via email, phone, and WhatsApp."
-                />
-                <meta name="keywords" content="
-                        siliconvista contact,
-                        vlsi training in chennai,
-                        vlsi coaching institute india,
-                        contact vlsi institute,
-                        best vlsi institute near me,
-                        online vlsi course support,
-                        vlsi classes enquiry,
-                        vlsi admission helpline,
-                        semiconductor training institute contact,
-                        vlsi internship contact,
-                        systemverilog course enquiry,
-                        online technical training support,
-                        chip design course india contact,
-                        vlsi career guidance,
-                        uvm training india
-                " />
-                <link rel="canonical" href="https://siliconvista.in/contact" />
-                <meta property="og:title" content="Contact SiliconVista – Get VLSI Course Info" />
-                <meta property="og:image" content="https://siliconvista.in/og-contact.png" />
-                <meta property="og:url" content="https://siliconvista.in/contact" />
+                <title>Contact Silicon Vista | VLSI Institute Chennai</title>
+                <meta name="description" content="Contact Silicon Vista, the top VLSI Institute in Chennai. Visit our Tiruvallur training centre for admission enquiries or book a free demo session today." />
+                <meta name="keywords" content="Contact Silicon Vista, VLSI Institute Chennai, Training Centre Tiruvallur, Admission Enquiry, Book Free Demo" />
+                <link rel="canonical" href="https://siliconvista.com/contact" />
+
+                {/* OpenGraph */}
+                <meta property="og:title" content="Contact Silicon Vista | VLSI Institute Chennai" />
+                <meta property="og:description" content="Reach out for admission enquiries or book a free demo today." />
+                <meta property="og:image" content="https://siliconvista.com/og-contact.png" />
+                <meta property="og:url" content="https://siliconvista.com/contact" />
+                <meta property="og:type" content="website" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Contact Silicon Vista | VLSI Institute Chennai" />
+                <meta name="twitter:description" content="Reach out for admission enquiries or book a free demo today." />
+                <meta name="twitter:image" content="https://siliconvista.com/og-contact.png" />
+
+                {/* Structured Data: LocalBusiness */}
+                <script type="application/ld+json">
+                  {`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "EducationalOrganization",
+                    "@id": "https://siliconvista.com/#localBusiness",
+                    "name": "Silicon Vista VLSI Training Institute",
+                    "image": "https://siliconvista.com/campus.jpg",
+                    "telephone": "+91-7904513540",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "streetAddress": "Tiruvallur",
+                      "addressLocality": "Chennai",
+                      "addressRegion": "Tamil Nadu",
+                      "addressCountry": "IN"
+                    },
+                    "geo": {
+                      "@type": "GeoCoordinates",
+                      "latitude": 13.1430,
+                      "longitude": 79.9079
+                    }
+                  }
+                  `}
+                </script>
             </Helmet>
 
-            {/* Hero Section */}
-            <div style={{ 
-              background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)', 
-              padding: '100px 5% 60px', 
-              textAlign: 'center',
-              position: 'relative',
-              overflow: 'hidden',
-              marginTop: '60px' // Adjust for navbar
-            }}>
-              <div style={{ position: 'absolute', top: '-50px', left: '-50px', width: '200px', height: '200px', background: 'rgba(255, 255, 255, 0.15)', borderRadius: '50%', filter: 'blur(40px)' }}></div>
-              <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '300px', height: '300px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
-              
-              <h1 style={{ color: '#fff', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '800', marginBottom: '20px', position: 'relative', zIndex: 1, textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-                Get In <span style={{ color: '#fff', opacity: 0.9 }}>Touch</span>
-              </h1>
-              <p style={{ color: '#fff', fontSize: 'clamp(1rem, 2vw, 1.2rem)', maxWidth: '700px', margin: '0 auto', position: 'relative', zIndex: 1, textShadow: '0 1px 3px rgba(0,0,0,0.3)', fontWeight: '500' }}>
-                We're here to answer any questions about our VLSI courses, internships, and career guidance. Let's build your semiconductor career together.
-              </p>
-            </div>
-
             {/* Main Content Area */}
-            <div style={{ flex: 1, padding: '60px 5%', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+            <div style={{ flex: 1, padding: '120px 5% 60px', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
                 <div style={{ 
                     display: 'flex', 
                     flexDirection: 'row', 
@@ -107,7 +105,7 @@ const Contact = () => {
                     
                     {/* Form Section */}
                     <div style={{ flex: '1 1 500px', padding: '50px' }}>
-                        <h2 style={{ color: '#112240', fontSize: '2rem', fontWeight: '800', marginBottom: '10px' }}>Register Here</h2>
+                        <h2 style={{ color: '#112240', marginBottom: '10px' }}>Register Here</h2>
                         <p style={{ color: '#666', marginBottom: '30px' }}>Fill out the form below and our team will get back to you shortly.</p>
 
                         <Form onSubmit={handleSubmit}>
@@ -230,43 +228,50 @@ const Contact = () => {
                         color: 'white',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        position: 'relative',
+                        overflow: 'hidden'
                     }}>
-                        <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '40px', color: '#fff' }}>Contact Details</h2>
+                        <ParticleBackground />
                         
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '35px' }}>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                                    <FaEnvelope size={24} />
-                                </div>
-                                <div>
-                                    <h4 style={{ margin: '0 0 5px 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Email Us</h4>
+                        <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <h2 style={{ marginBottom: '40px', color: '#fff', textAlign: 'left' }}>Contact Details</h2>
+                            
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '35px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <h4 style={{ margin: '0 0 15px 0', color: '#fff', textAlign: 'left' }}>Email Us</h4>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                        <FaEnvelope size={24} />
+                                    </div>
                                     <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem' }}>info@siliconvista.in</p>
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                                    <FaPhoneAlt size={24} />
-                                </div>
-                                <div>
-                                    <h4 style={{ margin: '0 0 5px 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Call Us</h4>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <h4 style={{ margin: '0 0 15px 0', color: '#fff', textAlign: 'left' }}>Call Us</h4>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                        <FaPhoneAlt size={24} />
+                                    </div>
                                     <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem' }}>+91 79045 13540</p>
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                                <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                                    <FaMapMarkerAlt size={24} />
-                                </div>
-                                <div>
-                                    <h4 style={{ margin: '0 0 5px 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Visit Us</h4>
-                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
-                                        No: 44, Venugopalapuram 4th street<br />
-                                        Iyyappanthangal, Chennai
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <h4 style={{ margin: '0 0 15px 0', color: '#fff', textAlign: 'left' }}>Visit Us</h4>
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
+                                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                        <FaMapMarkerAlt size={24} />
+                                    </div>
+                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', lineHeight: '1.5', paddingTop: '10px' }}>
+                                        No: 44, Venugopalapuram<br />
+                                        4th street Iyyappanthangal,<br />
+                                        Chennai
                                     </p>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
 

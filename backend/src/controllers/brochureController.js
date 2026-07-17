@@ -113,7 +113,7 @@ export const downloadBrochureRequest = async (req, res) => {
     });
 
     const adminMail = {
-      from: "SiliconVista Brochure Leads",
+      from: `"Silicon Vista Brochure Leads" <${process.env.MAIL_USERNAME}>`,
       to: process.env.MAIL_USERNAME,
       replyTo: email,
       subject: `New Brochure Download: ${brochureTitle}`,
@@ -130,7 +130,7 @@ export const downloadBrochureRequest = async (req, res) => {
     };
 
     const userMail = {
-      from: process.env.MAIL_USERNAME,
+      from: `"Silicon Vista Team" <${process.env.MAIL_USERNAME}>`,
       to: email,
       subject: "Your Silicon Vista Brochure Download",
       text: `Hi ${name},\n\nThank you for your interest in Silicon Vista! You requested to download the brochure: ${brochureTitle}.\n\nBest regards,\nSilicon Vista Team`

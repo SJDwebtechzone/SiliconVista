@@ -1,5 +1,179 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Farro:wght@300;400;500;700&family=Onest:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Global Typography Standardization */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-align: center; /* Default header alignment as requested */
+  color: #073738;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.4;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Honeycomb Layout */
+.honeycomb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.honeycomb-row {
+  display: flex;
+  justify-content: center;
+  margin-top: -38px; /* Pulled up to interlock */
+}
+
+.honeycomb-row:first-child {
+  margin-top: 0;
+}
+
+.hex {
+  width: 150px;
+  height: 173px;
+  margin: 0 3px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.hex img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hex:hover {
+  transform: scale(1.06);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .honeycomb {
+    transform: scale(0.9);
+  }
+}
+@media (max-width: 480px) {
+  .honeycomb {
+    transform: scale(0.65);
+  }
+}
+
+/* Glowing Circuit Board Animation */
+@keyframes flowElectricity {
+  0% { stroke-dashoffset: 1200; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.circuit-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 120%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circuit-line {
+  fill: none;
+  stroke: rgba(0, 198, 160, 0.2);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circuit-node {
+  fill: rgba(0, 198, 160, 0.4);
+}
+
+.circuit-glow {
+  fill: none;
+  stroke: #00C6A0;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px #00C6A0);
+  stroke-dasharray: 60 1200;
+  animation: flowElectricity 4s linear infinite;
+}
+
+.circuit-glow.delay-1 { animation-duration: 3s; animation-delay: -1s; stroke: #2196F3; filter: drop-shadow(0 0 8px #2196F3); }
+.circuit-glow.delay-2 { animation-duration: 5s; animation-delay: -2s; stroke: #7A1FA2; filter: drop-shadow(0 0 8px #7A1FA2); }
+.circuit-glow.delay-3 { animation-duration: 3.5s; animation-delay: -0.5s; }
+.circuit-glow.delay-4 { animation-duration: 4.5s; animation-delay: -1.5s; stroke: #2196F3; filter: drop-shadow(0 0 8px #2196F3); }
+
+@media (max-width: 768px) {
+  .premium-collage {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    transform: none;
+    margin-bottom: 0;
+  }
+  
+  .c-img {
+    position: static;
+    width: 100%;
+    height: auto;
+    border: 2px solid #ffffff;
+  }
+
+  /* Maintain aspect ratios */
+  .c-h1 { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .c-h2 { aspect-ratio: 5 / 6; }
+  .c-h3 { aspect-ratio: 5 / 6; }
+  .c-h4 { grid-column: 1 / -1; aspect-ratio: 1 / 1; }
+  .c-h5 { aspect-ratio: 3 / 2; }
+  .c-h6 { aspect-ratio: 3 / 2; }
+  .c-h7 { grid-column: 1 / -1; aspect-ratio: 9 / 4; }
+}
+
 .homeDiv{
     padding-top: 60px;
 }

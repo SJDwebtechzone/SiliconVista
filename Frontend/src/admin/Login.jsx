@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaShieldAlt } from 'react-icons/fa';
 import './admin.css';
 import logo from '../assets/logo.png'; // Assuming a logo exists or I'll use text if it fails
+import FeatureParticles from '../Components/FeatureParticles';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -35,20 +36,7 @@ const Login = () => {
   return (
     <div className="login-page-container">
       {/* Animated Particles Background */}
-      <div className="animated-bg">
-        <ul className="particles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
+      <FeatureParticles count={40} sizeMultiplier={3.5} />
 
       {/* Main Content */}
       <div className="login-content-wrapper">

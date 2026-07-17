@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../Components/Footer';
 import { FaCalendarAlt, FaUser, FaArrowLeft, FaImage } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -60,102 +61,146 @@ const BlogDetail = () => {
   return (
     <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       
-      {/* Article Header & Image */}
+      {blog && (
+        <Helmet>
+          <title>{blog.title} | Silicon Vista Blog</title>
+          <meta name="description" content={blog.excerpt || `Read ${blog.title} on Silicon Vista.`} />
+          <meta name="keywords" content="VLSI Blogs, Semiconductor News, Chip Design Articles, Silicon Vista" />
+          <link rel="canonical" href={`https://siliconvista.com/blogs/${id}`} />
+
+          {/* OpenGraph */}
+          <meta property="og:title" content={`${blog.title} | Silicon Vista`} />
+          <meta property="og:description" content={blog.excerpt || `Read ${blog.title} on Silicon Vista.`} />
+          {blog.cover_image_url && <meta property="og:image" content={`http://localhost:8080/${blog.cover_image_url}`} />}
+          <meta property="og:url" content={`https://siliconvista.com/blogs/${id}`} />
+          <meta property="og:type" content="article" />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={`${blog.title} | Silicon Vista`} />
+          <meta name="twitter:description" content={blog.excerpt || `Read ${blog.title} on Silicon Vista.`} />
+          {blog.cover_image_url && <meta name="twitter:image" content={`http://localhost:8080/${blog.cover_image_url}`} />}
+
+          {/* Structured Data: Article */}
+          <script type="application/ld+json">
+            {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "${blog.title.replace(/"/g, '\\"')}",
+              "image": [
+                "${blog.cover_image_url ? `http://localhost:8080/${blog.cover_image_url}` : 'https://siliconvista.com/default-blog.png'}"
+              ],
+              "datePublished": "${blog.created_at}",
+              "author": {
+                "@type": "Person",
+                "name": "${blog.author_name || 'Silicon Vista Expert'}"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Silicon Vista",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://siliconvista.com/logo.png"
+                }
+              }
+            }
+            `}
+          </script>
+        </Helmet>
+      )}
+
+      {/* Dynamic Hero Section */}
       <div style={{ 
-        background: '#fff',
-        borderBottom: '1px solid #eaeaea'
+        background: blog.cover_image_url 
+          ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(http://localhost:8080/${blog.cover_image_url}) center/cover no-repeat`
+          : 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)',
+        padding: '120px 5% 150px',
+        textAlign: 'center',
+        position: 'relative',
+        marginTop: '60px' // Adjust for navbar
       }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '60px 5% 40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <button 
             onClick={() => navigate('/blogs')} 
             style={{ 
-              background: 'transparent', 
-              color: '#2196F3', 
-              border: 'none', 
-              fontWeight: '700', 
-              fontSize: '1rem', 
-              padding: 0, 
+              background: 'rgba(255, 255, 255, 0.2)', 
+              color: '#fff', 
+              border: '1px solid rgba(255, 255, 255, 0.4)', 
+              fontWeight: '600', 
+              fontSize: '0.95rem', 
+              padding: '8px 16px', 
+              borderRadius: '20px',
               cursor: 'pointer',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              marginBottom: '30px'
+              marginBottom: '30px',
+              transition: 'all 0.3s ease'
             }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'; }}
           >
             <FaArrowLeft /> Back to all insights
           </button>
           
-          <h1 style={{ color: '#112240', fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '800', lineHeight: '1.2', marginBottom: '25px' }}>
+          <h1 style={{ color: '#ffffff', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: '700', lineHeight: '1.3', marginBottom: '30px', textShadow: '0 4px 15px rgba(0,0,0,0.5)', fontFamily: '"Poppins", sans-serif' }}>
             {blog.title}
           </h1>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', color: '#666', fontSize: '1rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#e0f7fa', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00C6A0' }}>
-                <FaUser />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '30px', color: '#eee', fontSize: '1.05rem', flexWrap: 'wrap' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '45px', height: '45px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00C6A0', backdropFilter: 'blur(5px)' }}>
+                <FaUser size={18} />
               </div>
-              <span style={{ fontWeight: '600', color: '#333' }}>{blog.author || 'Silicon Vista Expert'}</span>
+              <span style={{ fontWeight: '600', color: '#fff' }}>{blog.author || 'Silicon Vista Expert'}</span>
             </span>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#888' }}>
-              <FaCalendarAlt />
+            <span style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '500' }}>
+              <div style={{ width: '45px', height: '45px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2196F3', backdropFilter: 'blur(5px)' }}>
+                <FaCalendarAlt size={18} />
+              </div>
               {new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </span>
           </div>
         </div>
-
-        {blog.cover_image_url && (
-          <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 5% 40px' }}>
-            <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-              <img 
-                src={`http://localhost:8080/${blog.cover_image_url}`} 
-                alt={blog.title} 
-                style={{ width: '100%', maxHeight: '500px', objectFit: 'cover', display: 'block' }} 
-              />
-            </div>
-          </div>
-        )}
       </div>
 
-      {/* Article Content */}
-      <div style={{ flex: 1, padding: '60px 5%', maxWidth: '800px', margin: '0 auto', width: '100%' }}>
-        
-        {blog.description && !blog.content && (
-          <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#333', marginBottom: '30px', fontWeight: '500' }}>
-            {blog.description}
-          </p>
-        )}
-
-        <div style={{ 
-          fontSize: '1.15rem', 
-          lineHeight: '1.9', 
-          color: '#444',
-          whiteSpace: 'pre-wrap', // Preserves line breaks from the textarea
+      {/* Article Content Card */}
+      <div style={{ 
+        flex: 1, 
+        padding: '0 5% 80px', 
+        maxWidth: '1000px', 
+        margin: '0 auto', 
+        width: '100%',
+        position: 'relative',
+        zIndex: 2,
+        marginTop: '-80px' // Overlap the hero section
+      }}>
+        <div style={{
+          background: '#fff',
+          borderRadius: '24px',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.1)',
+          padding: '60px',
+          minHeight: '400px'
         }}>
-          {blog.content || "This blog post doesn't have detailed content yet."}
-        </div>
-        
-        <div style={{ marginTop: '80px', paddingTop: '40px', borderTop: '1px solid #eaeaea', textAlign: 'center' }}>
-          <h3 style={{ color: '#112240', marginBottom: '20px' }}>Share this insight</h3>
-          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
-            {['Twitter', 'LinkedIn', 'Facebook'].map(social => (
-              <button key={social} style={{ 
-                background: '#fff', 
-                border: '1px solid #ddd', 
-                padding: '10px 20px', 
-                borderRadius: '50px', 
-                color: '#555',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#2196F3'; e.currentTarget.style.color = '#2196F3'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#ddd'; e.currentTarget.style.color = '#555'; }}
-              >
-                {social}
-              </button>
-            ))}
+          {blog.description && !blog.content && (
+            <p style={{ fontSize: '1.3rem', lineHeight: '1.9', color: '#222', marginBottom: '40px', fontWeight: '500', fontStyle: 'italic', borderLeft: '4px solid #00C6A0', paddingLeft: '20px', textAlign: 'justify' }}>
+              {blog.description}
+            </p>
+          )}
+
+          <div style={{ 
+            fontSize: '1.15rem', 
+            lineHeight: '2', 
+            color: '#444',
+            whiteSpace: 'pre-wrap', 
+            fontFamily: '"Poppins", sans-serif',
+            textAlign: 'justify'
+          }} className="blog-content">
+            {blog.content || "This blog post doesn't have detailed content yet."}
           </div>
         </div>
+        
       </div>
 
       <Footer />

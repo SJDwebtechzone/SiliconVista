@@ -68,7 +68,7 @@ const ReviewForm = () => {
           className="rounded-pill px-5 py-3 fw-bold shadow-sm text-white"
           style={{ background: 'linear-gradient(90deg, #00C6A0, #2196F3)', border: 'none' }}
         >
-          Submit Your Review
+          Write Your Review
         </Button>
       </div>
 
@@ -76,7 +76,7 @@ const ReviewForm = () => {
         <div style={{ background: 'linear-gradient(90deg, #00C6A0, #2196F3)', height: '10px' }}></div>
         <Modal.Header closeButton className="border-0 pb-0">
           <Modal.Title className="fw-bold ps-2" style={{ color: '#073738', fontSize: '1.8rem' }}>
-            Submit Your Review
+            Write Your Review
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4 pb-4 pt-3">

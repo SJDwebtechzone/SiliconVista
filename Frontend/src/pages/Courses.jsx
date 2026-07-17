@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './course.css';
 import Footer from '../Components/Footer';
 import { Helmet } from "react-helmet-async";
 import { Modal, Form, Button, Spinner, Alert } from 'react-bootstrap';
-import { FaCheckCircle, FaClock, FaGraduationCap, FaChevronDown, FaChevronUp, FaAngleRight } from 'react-icons/fa';
+import { FaCheckCircle, FaClock, FaGraduationCap, FaChevronDown, FaChevronUp, FaAngleRight, FaLaptop } from 'react-icons/fa';
+import FeatureParticles from '../Components/FeatureParticles';
 
 const Courses = () => {
 
@@ -127,83 +129,77 @@ const Courses = () => {
 
 
         <Helmet>
-            <title>VLSI Courses | SiliconVista – Design Verification & Chip Design Training</title>
+          <title>VLSI Courses | Design Verification & ASIC | Silicon Vista</title>
+          <meta name="description" content="Explore premium VLSI courses at Silicon Vista. Master Design Verification, SystemVerilog, UVM, and ASIC Verification with our job-oriented career programs." />
+          <meta name="keywords" content="VLSI Courses, Design Verification, SystemVerilog, UVM, ASIC Verification, RTL Design, Career Programs" />
+          <link rel="canonical" href="https://siliconvista.com/courses" />
 
-            <meta 
-              name="description" 
-              content="Explore SiliconVista’s VLSI courses including Design Verification, UVM, internships, and semiconductor fundamentals. Learn with real-time tools and industry experts."
-            />
+          {/* OpenGraph */}
+          <meta property="og:title" content="Premium VLSI & Design Verification Courses" />
+          <meta property="og:description" content="Master SystemVerilog, UVM, and ASIC Verification with our job-oriented career programs." />
+          <meta property="og:image" content="https://siliconvista.com/og-courses.png" />
+          <meta property="og:url" content="https://siliconvista.com/courses" />
+          <meta property="og:type" content="website" />
 
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Premium VLSI & Design Verification Courses" />
+          <meta name="twitter:description" content="Master SystemVerilog, UVM, and ASIC Verification with our job-oriented career programs." />
+          <meta name="twitter:image" content="https://siliconvista.com/og-courses.png" />
 
-            <meta name="keywords" content="
-                vlsi courses online,
-                systemverilog course syllabus,
-                uvm full course online,
-                vlsi design verification course india,
-                best vlsi course for freshers,
-                online vlsi internship,
-                chip design course online,
-                advanced vlsi course,
-                semiconductor course online,
-                vlsi professional training,
-                vlsi real-time project course,
-                learn uvm online,
-                learn systemverilog from scratch,
-                vlsi design course with placement,
-                industry-ready vlsi course,
-                online digital electronics course,
-                asic verification course,
-                rtl design course online,
-                top vlsi training courses,
-                vlsi verification engineer training,
-                verification and validation course,
-                vlsi testing course,
-                complete vlsi course package
-            " />
-
-
-
-            <link rel="canonical" href="https://siliconvista.in/courses" />
-
-            
-            <meta property="og:title" content="VLSI Courses – Learn Chip Design & Verification" />
-            <meta property="og:description" content="Hands-on VLSI courses with real-time industry tools and expert-led sessions." />
-            <meta property="og:image" content="https://siliconvista.in/og-courses.png" />
-            <meta property="og:url" content="https://siliconvista.in/courses" />
-
-            
-            <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
+          {/* Structured Data: Course */}
+          <script type="application/ld+json">
+            {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Course",
+              "name": "VLSI Design Verification Professional Development Program",
+              "description": "Comprehensive, industry-focused training designed to prepare engineers for careers in the global semiconductor industry, covering SystemVerilog and UVM.",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "Silicon Vista",
+                "sameAs": "https://siliconvista.com/"
+              },
+              "courseMode": ["online", "offline"],
+              "educationalCredentialAwarded": "Certificate of Completion",
+              "offers": {
+                "@type": "Offer",
+                "category": "Paid"
+              }
+            }
+            `}
+          </script>
+        </Helmet>
 
 
       <div className='courseHero'>
         <div className='heroContent'>
-          <h1>Comprehensive VLSI Design Verification Course</h1>
+          <h1>Comprehensive <span>VLSI Design Verification</span> Course</h1>
         </div>
       </div>
 
       <div style={{ backgroundColor: '#f8f9fa', padding: '80px 5%' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: '50px' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '50px' }}>
           
           {/* Main Content Column */}
-          <div style={{ flex: '1 1 700px', background: '#fff', padding: '50px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)' }}>
-            <h1 style={{ color: '#112240', fontSize: '2.2rem', fontWeight: '800', marginBottom: '25px', lineHeight: '1.3' }}>
+          <div style={{ width: '100%', background: '#fff', padding: '50px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)' }}>
+            <h1 style={{ color: '#112240', marginBottom: '25px' }}>
               Professional Development Program in <span style={{ color: '#2196F3' }}>VLSI Design Verification</span>
             </h1>
 
-            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
+            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px', textAlign: 'justify' }}>
               Our VLSI Design Verification Professional Development Program is a comprehensive, industry-focused training designed to prepare engineers for careers in the global semiconductor industry.
             </p>
 
-            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
+            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px', textAlign: 'justify' }}>
               The course is carefully structured with the right balance of in-depth classroom sessions and extensive hands-on lab projects, enabling graduates to transition into skilled verification professionals.
             </p>
 
-            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '40px' }}>
+            <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '40px', textAlign: 'justify' }}>
               The program is designed to address the growing demand for VLSI Design Verification engineers, equipping learners with both theoretical fundamentals and practical expertise required by today’s semiconductor companies.
             </p>
 
-            <h2 style={{ color: '#112240', fontSize: '1.8rem', fontWeight: '800', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <h2 style={{ color: '#112240', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <div style={{ width: '40px', height: '4px', background: 'linear-gradient(90deg, #00C6A0, #2196F3)', borderRadius: '4px' }}></div>
                 What Makes This Course Stand Out
             </h2>
@@ -217,37 +213,52 @@ const Courses = () => {
                     "Hands-on project experience using advanced technologies"
                 ].map((item, idx) => (
                     <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '15px', fontSize: '1.1rem', color: '#444', background: '#f8f9fa', padding: '15px 20px', borderRadius: '12px' }}>
-                        <FaCheckCircle color="#00C6A0" size={20} flexShrink={0} />
+                        <FaCheckCircle color="#00C6A0" size={20} style={{ flexShrink: 0 }} />
                         <span>{item}</span>
                     </li>
                 ))}
             </ul>
           </div>
 
-          {/* Sidebar / Info Column */}
-          <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+          {/* Features and Brochures Row */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '50px' }}>
             
-            <div style={{ background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)', padding: '40px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', color: 'white' }}>
-                <h2 style={{ fontSize: '1.8rem', fontWeight: '800', marginBottom: '30px', color: '#fff' }}>Salient Features</h2>
-                
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px', marginBottom: '30px' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                        <FaClock size={24} />
+            <div style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)', padding: '40px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', color: 'white' }}>
+                <FeatureParticles />
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    <h2 style={{ marginBottom: '30px', color: '#fff' }}>Salient Features</h2>
+                    
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                            <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                <FaClock size={24} />
+                            </div>
+                            <h4 style={{ margin: 0, color: '#fff' }}>Course Duration</h4>
+                        </div>
+                        <p style={{ margin: '0 0 0 70px', color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem' }}>4 Months</p>
                     </div>
-                    <div>
-                        <h4 style={{ margin: '0 0 5px 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Course Duration</h4>
-                        <p style={{ margin: 0, color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem' }}>4 Months</p>
-                    </div>
-                </div>
 
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
-                        <FaGraduationCap size={24} />
-                    </div>
-                    <div>
-                        <h4 style={{ margin: '0 0 5px 0', color: '#fff', fontSize: '1.1rem', fontWeight: '700' }}>Eligibility</h4>
-                        <p style={{ margin: 0, color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                            <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                <FaGraduationCap size={24} />
+                            </div>
+                            <h4 style={{ margin: 0, color: '#fff' }}>Eligibility</h4>
+                        </div>
+                        <p style={{ margin: '0 0 0 70px', color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
                             Engineering Degree in ECE, EEE, CSE, E&I, or equivalent Master’s Engineering programs
+                        </p>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                            <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
+                                <FaLaptop size={24} />
+                            </div>
+                            <h4 style={{ margin: 0, color: '#fff' }}>Mode of Training</h4>
+                        </div>
+                        <p style={{ margin: '0 0 0 70px', color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', lineHeight: '1.5' }}>
+                            Offline / Online courses available
                         </p>
                     </div>
                 </div>
@@ -256,7 +267,7 @@ const Courses = () => {
             {/* Dynamic Brochures Section */}
             {brochures.length > 0 && (
               <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)' }}>
-                <h2 style={{ color: '#112240', fontSize: '1.8rem', fontWeight: '800', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <h2 style={{ color: '#112240', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ width: '25px', height: '25px', background: 'linear-gradient(135deg, #00C6A0, #2196F3)', borderRadius: '5px' }}></div>
                     Download Brochure
                 </h2>
@@ -292,7 +303,7 @@ const Courses = () => {
                         📄
                       </div>
                       <div style={{ flexGrow: 1 }}>
-                        <h4 style={{ margin: '0 0 8px 0', fontSize: '1.15rem', color: '#112240', fontWeight: '800' }}>{bro.title}</h4>
+                        <h4 style={{ margin: '0 0 8px 0', color: '#112240', fontSize: '1.2rem', textAlign: 'left' }}>{bro.title}</h4>
                         <span style={{ fontSize: '0.85rem', color: '#555', backgroundColor: '#e2e8f0', padding: '5px 12px', borderRadius: '20px', fontWeight: '600' }}>
                           {bro.file_size || 'Unknown Size'}
                         </span>
@@ -330,9 +341,53 @@ const Courses = () => {
           </div>
         </div>
       </div>
-        <div style={{ backgroundColor: '#fff', padding: '80px 5%' }} id='cd'>
+
+      {/* Admission CTA Section */}
+      <div style={{
+        padding: '60px 5%',
+        background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+      }}>
+        <FeatureParticles />
+        {/* Subtle background decoration */}
+        <div style={{ position: 'absolute', top: '-50%', left: '-10%', width: '300px', height: '300px', background: 'rgba(255,255,255,0.05)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '-50%', right: '-10%', width: '300px', height: '300px', background: 'rgba(33,150,243,0.2)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
+        
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ color: '#fff', marginBottom: '20px', textShadow: '0 4px 10px rgba(0,0,0,0.2)' }}>
+            Launch Your Career in VLSI Design Verification
+          </h2>
+          <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.2rem', marginBottom: '35px' }}>
+            Gain industry-ready skills through hands-on projects, expert mentorship, and real-world semiconductor training. Build the confidence employers look for and prepare for a successful career in the VLSI industry.
+          </p>
+          <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <button style={{
+              background: '#fff',
+              color: '#073738',
+              padding: '16px 45px',
+              borderRadius: '30px',
+              fontSize: '1.15rem',
+              fontWeight: 'bold',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 10px 20px rgba(0,0,0,0.2)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 15px 25px rgba(0,0,0,0.3)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)'; }}
+            >
+              Enroll Today & Secure Your Future
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: '#fff', padding: '80px 5%' }} id='cd'>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <h1 style={{ color: '#112240', fontSize: '2.5rem', fontWeight: '800', marginBottom: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+            <h1 style={{ color: '#112240', marginBottom: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
               Course Content
               <div style={{ width: '60px', height: '4px', background: 'linear-gradient(90deg, #00C6A0, #2196F3)', borderRadius: '4px' }}></div>
             </h1>
@@ -369,7 +424,7 @@ const Courses = () => {
                           transition: 'background 0.3s'
                         }}
                       >
-                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '700', color: isActive ? '#2196F3' : '#112240', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <h3 style={{ margin: 0, color: isActive ? '#2196F3' : '#112240', display: 'flex', alignItems: 'center', gap: '15px' }}>
                           <span style={{ 
                             background: isActive ? 'linear-gradient(135deg, #00C6A0, #2196F3)' : '#f0f0f0', 
                             color: isActive ? '#fff' : '#666', 

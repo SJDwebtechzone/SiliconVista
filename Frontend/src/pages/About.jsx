@@ -7,55 +7,67 @@ import { RiEyeLine } from "react-icons/ri";
 import { MdOutlineTrackChanges } from "react-icons/md";
 
 import Footer from '../Components/Footer.jsx';
-import aboutImg from '../assets/abt.webp';
+import aboutImg from '../assets/about.png';
+import bannerImg from '../assets/about-banner.png';
 
 const About = () => {
   return (
     <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       <Helmet>
-          <title>About Us | SiliconVista – VLSI & Semiconductor Training Institute</title>
-          <meta 
-            name="description" 
-            content="Learn about SiliconVista — a trusted online VLSI training platform offering hands-on chip design education, expert mentoring, and industry-oriented learning."
-          />
-          <meta name="keywords" content="
-                about siliconvista,
-                online vlsi institute india,
-                best semiconductor training institute,
-                vlsi training platform,
-                vlsi education provider,
-                trusted vlsi institute,
-                vlsi coaching center india,
-                vlsi design education,
-                semiconductor skill development,
-                vlsi learning platform,
-                vlsi e-learning institute,
-                chip design learning center,
-                systemverilog training institute,
-                uvm training institute,
-                online electronics training,
-                vlsi institute for beginners,
-                career-focused vlsi institute,
-                industry-based vlsi training,
-                learn semiconductor online,
-                what is siliconvista,
-                siliconvista vlsi verification training,
-                online technical training institute,
-                semiconductor design education
-          " />
-          <link rel="canonical" href="https://siliconvista.in/about" />
-          <meta property="og:title" content="About SiliconVista – Online VLSI Institute" />
-          <meta property="og:description" content="Know our vision, mission, and why SiliconVista is the trusted platform for VLSI learning." />
-          <meta property="og:image" content="https://siliconvista.in/og-about.png" />
-          <meta property="og:url" content="https://siliconvista.in/about" />
-          <meta name="twitter:card" content="summary_large_image" />
+        <title>About Silicon Vista | Leading VLSI Institute Chennai</title>
+        <meta name="description" content="Learn about Silicon Vista, a leading VLSI institute in Chennai. Our industry expert trainers provide real-time projects and hands-on semiconductor training." />
+        <meta name="keywords" content="About Silicon Vista, Leading VLSI Institute Chennai, Real Time Projects, Hands-on Training, Industry Expert Trainers, Semiconductor Training" />
+        <link rel="canonical" href="https://siliconvista.com/about" />
+
+        {/* OpenGraph */}
+        <meta property="og:title" content="About Silicon Vista - Leading VLSI Institute" />
+        <meta property="og:description" content="Learn about our mission to provide industry-standard chip design training and real-time projects." />
+        <meta property="og:image" content="https://siliconvista.com/og-about.png" />
+        <meta property="og:url" content="https://siliconvista.com/about" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Silicon Vista - Leading VLSI Institute" />
+        <meta name="twitter:description" content="Learn about our mission to provide industry-standard chip design training and real-time projects." />
+        <meta name="twitter:image" content="https://siliconvista.com/og-about.png" />
+
+        {/* Structured Data: LocalBusiness */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "@id": "https://siliconvista.com/#localBusiness",
+            "name": "Silicon Vista VLSI Training Institute",
+            "image": "https://siliconvista.com/campus.jpg",
+            "telephone": "+91-7904513540",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Tiruvallur",
+              "addressLocality": "Chennai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 13.1430,
+              "longitude": 79.9079
+            }
+          }
+          `}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
       <div style={{ 
-        background: 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)', 
-        padding: '100px 5% 60px', 
+        background: `linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(${bannerImg}) center/cover no-repeat`, 
+        height: '450px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        padding: '0 5%',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -64,11 +76,34 @@ const About = () => {
         <div style={{ position: 'absolute', top: '-50px', left: '-50px', width: '200px', height: '200px', background: 'rgba(255, 255, 255, 0.15)', borderRadius: '50%', filter: 'blur(40px)' }}></div>
         <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '300px', height: '300px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
         
-        <h1 style={{ color: '#fff', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '800', marginBottom: '20px', position: 'relative', zIndex: 1, textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-          About <span style={{ color: '#fff', opacity: 0.9 }}>Us</span>
+        <h1 style={{ 
+          color: '#ffffff', 
+          fontFamily: '"Poppins", sans-serif',
+          fontSize: '52px',
+          fontWeight: 800,
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+          textShadow: '0 4px 15px rgba(0,0,0,0.5)',
+          marginBottom: '20px', 
+          position: 'relative', 
+          zIndex: 1
+        }}>
+          About <span style={{ color: '#ffffff' }}>Silicon Vista</span>
         </h1>
-        <p style={{ color: '#fff', fontSize: 'clamp(1rem, 2vw, 1.2rem)', maxWidth: '700px', margin: '0 auto', position: 'relative', zIndex: 1, textShadow: '0 1px 3px rgba(0,0,0,0.3)', fontWeight: '500' }}>
-          Online VLSI Learning Designed for Your Success
+        <p style={{ 
+          color: '#fff', 
+          fontFamily: '"Poppins", sans-serif',
+          fontSize: '1.5rem', 
+          fontWeight: 500,
+          letterSpacing: '1px',
+          maxWidth: '700px', 
+          margin: '0 auto', 
+          position: 'relative', 
+          zIndex: 1, 
+          textShadow: '0 4px 15px rgba(0,0,0,0.5)', 
+          textAlign: 'center' 
+        }}>
+          VLSI Learning Designed for Your Success
         </p>
       </div>
   
@@ -87,15 +122,15 @@ const About = () => {
             gap: '50px'
         }}>
             <div style={{ flex: '1 1 500px' }}>
-                <h2 style={{ color: '#112240', fontSize: '2.5rem', fontWeight: '800', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <h2 style={{ color: '#112240', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ width: '50px', height: '5px', background: 'linear-gradient(90deg, #00C6A0, #2196F3)', borderRadius: '5px' }}></div>
                     About Us
                 </h2>
                 
-                <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
-                    <b>SiliconVista</b> is an online <b>VLSI</b> and semiconductor training institute dedicated to nurturing skilled and confident engineers for the semiconductor industry. We are driven by a simple goal — to help learners build strong foundations and practical skills required to succeed in <b>VLSI and chip</b> design careers.
+                <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', marginBottom: '20px', textAlign: 'justify' }}>
+                    <b>SiliconVista</b> is a premier training institute offering both online and offline programs in <b>VLSI</b> and semiconductor technology. We are dedicated to nurturing skilled and confident engineers for the semiconductor industry, driven by a simple goal — to help learners build strong foundations and practical skills required to succeed in <b>VLSI and chip</b> design careers.
                 </p>
-                <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8' }}>
+                <p style={{ fontSize: '1.15rem', color: '#555', lineHeight: '1.8', textAlign: 'justify' }}>
                     With the rapid growth of the semiconductor domain, there is a growing demand for engineers who not only understand theory but can also apply concepts effectively. At <b>SiliconVista</b>, we focus on transforming academic concepts into practical, industry-relevant skills through structured and <b>application-oriented training</b>.
                 </p>
             </div>
@@ -116,13 +151,13 @@ const About = () => {
             
             {/* Vision */}
             <div style={{ background: '#fff', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)', padding: '40px', borderTop: '4px solid #2196F3', transition: 'transform 0.3s' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
-                <h3 style={{ color: '#112240', fontSize: '1.8rem', fontWeight: '800', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <h3 style={{ fontSize: '1.4rem', color: '#112240', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ background: 'rgba(33, 150, 243, 0.1)', color: '#2196F3', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <RiEyeLine size={26} />
                     </div>
                     Our Vision 
                 </h3>
-                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '25px' }}>
+                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '25px', textAlign: 'justify' }}>
                     To become a trusted learning platform that empowers students and professionals with clear knowledge, hands-on exposure, and career-focused guidance in the field of <b>VLSI and semiconductors.</b>
                 </p>
                 <div style={{ background: 'linear-gradient(90deg, rgba(0, 198, 160, 0.1), rgba(33, 150, 243, 0.1))', padding: '15px 20px', borderRadius: '12px', color: '#2196F3', fontWeight: '700', fontSize: '1.1rem', borderLeft: '4px solid #2196F3' }}>
@@ -132,29 +167,29 @@ const About = () => {
 
             {/* Mission */}
             <div style={{ background: '#fff', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)', padding: '40px', borderTop: '4px solid #7A1FA2', transition: 'transform 0.3s' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
-                <h3 style={{ color: '#112240', fontSize: '1.8rem', fontWeight: '800', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <h3 style={{ fontSize: '1.4rem', color: '#112240', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ background: 'rgba(122, 31, 162, 0.1)', color: '#7A1FA2', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <FaRocket size={26} />
                     </div>
                     Our Mission
                 </h3>
-                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '15px' }}>
+                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '15px', textAlign: 'justify' }}>
                     Our mission is to empower students and professionals with the confidence, clarity, and skills needed to excel in semiconductor design, verification, and emerging chip technologies.
                 </p>
-                <p style={{ fontSize: '1.1rem', color: '#7A1FA2', lineHeight: '1.7', fontWeight: '600' }}>
+                <p style={{ fontSize: '1.1rem', color: '#7A1FA2', lineHeight: '1.7', fontWeight: '600', textAlign: 'justify' }}>
                     To make advanced VLSI education accessible, practical, and career-oriented for every learner.
                 </p>
             </div>
 
             {/* Commitment */}
             <div style={{ background: '#fff', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)', padding: '40px', borderTop: '4px solid #00C6A0', transition: 'transform 0.3s' }} onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
-                <h3 style={{ color: '#112240', fontSize: '1.8rem', fontWeight: '800', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <h3 style={{ fontSize: '1.4rem', color: '#112240', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ background: 'rgba(0, 198, 160, 0.1)', color: '#00C6A0', width: '50px', height: '50px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <FaHandsHelping size={26} />
                     </div>
                     Our Commitment
                 </h3>
-                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '15px' }}>
+                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '15px', textAlign: 'justify' }}>
                     At <b>SiliconVista</b>, we are committed to:
                 </p>
                 <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -164,13 +199,13 @@ const About = () => {
                         "Maintaining industry relevance",
                         "Supporting learners throughout their learning journey"
                     ].map((item, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.05rem', color: '#444' }}>
-                            <FaCheckCircle color="#00C6A0" flexShrink={0} />
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '1.05rem', color: '#444', lineHeight: '1.5' }}>
+                            <FaCheckCircle color="#00C6A0" size={20} style={{ marginTop: '3px', flexShrink: 0 }} />
                             {item === "Providing honest career guidance" ? <span>Providing honest <b>career guidance</b></span> : <span>{item}</span>}
                         </li>
                     ))}
                 </ul>
-                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7' }}>
+                <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', textAlign: 'justify' }}>
                     We believe that with the right guidance and practical exposure, anyone with passion can build a successful career.
                 </p>
             </div>
