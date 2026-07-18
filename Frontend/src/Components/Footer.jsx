@@ -36,8 +36,8 @@ const Footer = () => {
             </p>
             <div className="social-links mt-3">
               <a href="#" aria-label="Facebook"><FaFacebookF /></a>
-              <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
-              <a href="#" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://www.linkedin.com/company/silicon-vista/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+              <a href="https://www.instagram.com/siliconvista/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
               <a href="#" aria-label="YouTube"><FaYoutube /></a>
             </div>
           </div>
