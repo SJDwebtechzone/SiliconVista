@@ -38,7 +38,7 @@ const Footer = () => {
               <a href="#" aria-label="Facebook"><FaFacebookF /></a>
               <a href="https://www.linkedin.com/company/silicon-vista/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
               <a href="https://www.instagram.com/siliconvista/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-              <a href="#" aria-label="YouTube"><FaYoutube /></a>
+              <a href="https://www.youtube.com/@SiliconVista" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
             </div>
           </div>
 
@@ -62,7 +62,6 @@ const Footer = () => {
               <li><NavLink to="/courses">Internship Program</NavLink></li>
               <li><NavLink to="/courses">SystemVerilog & UVM</NavLink></li>
               <li><NavLink to="/courses">Protocol Training</NavLink></li>
-              <li><NavLink to="/courses">Industrial Training</NavLink></li>
             </ul>
           </div>
 

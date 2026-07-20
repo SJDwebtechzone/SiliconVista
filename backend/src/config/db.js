@@ -28,6 +28,7 @@ export const connectDB = async () => {
     const { default: Brochure } = await import('../models/Brochure.js');
     const { default: CareerPartner } = await import('../models/CareerPartner.js');
     const { default: Blog } = await import('../models/Blog.js');
+    const { default: GoogleReview } = await import('../models/GoogleReview.js');
     
     // Relationships
     CourseSection.hasMany(CourseSectionItem, { foreignKey: 'section_id', onDelete: 'CASCADE' });
@@ -38,6 +39,7 @@ export const connectDB = async () => {
     await Brochure.sync({ alter: true });
     await CareerPartner.sync({ alter: true }); 
     await Blog.sync({ alter: true });
+    await GoogleReview.sync({ alter: true });
     console.log('Database synced.');
     
     // Initialize default settings if they don't exist

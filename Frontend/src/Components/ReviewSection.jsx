@@ -80,7 +80,7 @@ const ReviewSection = () => {
     }}>
       <Container style={{ position: 'relative', zIndex: 1 }}>
         <div className="text-center mb-5">
-          <h1 className="mb-3" style={{ color: '#7A1FA2' }}>What Our Students Say</h1>
+          <h1 className="mb-3" style={{ color: '#7A1FA2' }}>What Our Students Says</h1>
           <p className="fs-5 fw-medium" style={{ textAlign: 'center', color: '#000' }}>Real experiences from our successful candidates</p>
           <div style={{ height: '4px', width: '60px', background: 'linear-gradient(90deg, #00C6A0, #2196F3)', margin: '0 auto', borderRadius: '2px' }}></div>
         </div>

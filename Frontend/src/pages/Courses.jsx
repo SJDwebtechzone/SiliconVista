@@ -266,7 +266,7 @@ const Courses = () => {
 
             {/* Dynamic Brochures Section */}
             {brochures.length > 0 && (
-              <div style={{ background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)' }}>
+              <div style={{ background: '#fff', padding: 'clamp(18px, 5vw, 40px)', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.06)' }}>
                 <h2 style={{ color: '#112240', marginBottom: '25px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ width: '25px', height: '25px', background: 'linear-gradient(135deg, #00C6A0, #2196F3)', borderRadius: '5px' }}></div>
                     Download Brochure
@@ -274,58 +274,24 @@ const Courses = () => {
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                   {brochures.map(bro => (
-                    <div key={bro.id} style={{
-                      background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
-                      borderRadius: '16px',
-                      padding: '20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
-                      transition: 'transform 0.3s ease',
-                      border: '1px solid rgba(0, 198, 160, 0.2)'
-                    }}
+                    <div key={bro.id} className="brochure-card"
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
                     >
-                      <div style={{
-                        width: '45px',
-                        height: '45px',
-                        borderRadius: '12px',
-                        background: 'linear-gradient(135deg, #00C6A0, #2196F3)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'white',
-                        fontSize: '22px',
-                        marginRight: '15px',
-                        flexShrink: 0
-                      }}>
+                      <div className="brochure-icon">
                         📄
                       </div>
-                      <div style={{ flexGrow: 1 }}>
+                      <div className="brochure-info">
                         <h4 style={{ margin: '0 0 8px 0', color: '#112240', fontSize: '1.2rem', textAlign: 'left' }}>{bro.title}</h4>
                         <span style={{ fontSize: '0.85rem', color: '#555', backgroundColor: '#e2e8f0', padding: '5px 12px', borderRadius: '20px', fontWeight: '600' }}>
                           {bro.file_size || 'Unknown Size'}
                         </span>
                       </div>
                       <button 
+                        className="brochure-btn"
                         onClick={() => {
                           setSelectedBrochure(bro);
                           setShowBrochureModal(true);
-                        }}
-                        style={{
-                          background: 'linear-gradient(90deg, #00C6A0, #2196F3)',
-                          color: 'white',
-                          border: 'none',
-                          padding: '10px 20px',
-                          borderRadius: '20px',
-                          fontWeight: '700',
-                          fontSize: '0.9rem',
-                          marginLeft: '15px',
-                          cursor: 'pointer',
-                          whiteSpace: 'nowrap',
-                          boxShadow: '0 4px 10px rgba(0,198,160,0.2)',
-                          transition: 'transform 0.2s'
                         }}
                         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}

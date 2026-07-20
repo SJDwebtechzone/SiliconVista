@@ -8,6 +8,8 @@ import Footer from '../Components/Footer.jsx';
 import HeroCarousel from '../Components/HeroCarousel.jsx';
 import ReviewForm from '../Components/ReviewForm.jsx';
 import ReviewSection from '../Components/ReviewSection.jsx';
+import GoogleReviewsSection from '../Components/GoogleReviewsSection.jsx';
+import CareerOpportunitiesSection from '../Components/CareerOpportunitiesSection.jsx';
 
 import h1 from '../assets/h1.jpg';
 import h2 from '../assets/h2.jpg';
@@ -520,131 +522,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Career Partners Section */}
-      {partners.length > 0 && (
-        <div style={{ padding: '40px 5%', background: '#ffffff', textAlign: 'center', overflow: 'hidden' }}>
-          <h1 style={{ 
-            background: 'linear-gradient(90deg, #00C6A0, #2196F3, #7A1FA2)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            marginBottom: '30px'
-          }}>
-            Career opportunity and VLSI industry
-          </h1>
-          <div style={{
-            overflow: 'hidden',
-            width: '100%',
-            position: 'relative',
-            padding: '10px 0',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '20px'
-          }}>
-            <style>
-              {`
-                @keyframes scrollLeft {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(-50%); }
-                }
-                @keyframes scrollRight {
-                  0% { transform: translateX(-50%); }
-                  100% { transform: translateX(0); }
-                }
-                .marquee-content-left {
-                  display: flex;
-                  gap: 20px;
-                  width: max-content;
-                  animation: scrollLeft 35s linear infinite;
-                }
-                .marquee-content-right {
-                  display: flex;
-                  gap: 20px;
-                  width: max-content;
-                  animation: scrollRight 35s linear infinite;
-                }
-                .marquee-content-left:hover, .marquee-content-right:hover {
-                  animation-play-state: paused;
-                }
-              `}
-            </style>
-            
-            {/* Top Row: Right to Left */}
-            <div className="marquee-content-left">
-              {[...partners, ...partners, ...partners, ...partners].map((partner, index) => (
-                <div key={`top-${partner.id}-${index}`} style={{
-                  width: 'clamp(120px, 30vw, 180px)',
-                  height: 'clamp(70px, 15vw, 100px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#f8f9fa',
-                  borderRadius: '12px',
-                  padding: '10px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-                  transition: 'transform 0.3s ease',
-                  flexShrink: 0
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                >
-                  {partner.logo_url ? (
-                    <img 
-                      src={`http://localhost:8080/${partner.logo_url}`} 
-                      alt={partner.name} 
-                      title={partner.name}
-                      style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                    />
-                  ) : (
-                    <span style={{ fontWeight: 'bold', color: '#666', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>{partner.name}</span>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* Google Reviews Section */}
+      <GoogleReviewsSection />
 
-            {/* Bottom Row: Left to Right - using a shifted array so logos don't align vertically */}
-            <div className="marquee-content-right">
-              {[
-                ...partners.slice(Math.ceil(partners.length / 2)), 
-                ...partners.slice(0, Math.ceil(partners.length / 2)),
-                ...partners.slice(Math.ceil(partners.length / 2)), 
-                ...partners.slice(0, Math.ceil(partners.length / 2)),
-                ...partners.slice(Math.ceil(partners.length / 2)), 
-                ...partners.slice(0, Math.ceil(partners.length / 2)),
-                ...partners.slice(Math.ceil(partners.length / 2)), 
-                ...partners.slice(0, Math.ceil(partners.length / 2))
-              ].map((partner, index) => (
-                <div key={`bottom-${partner.id}-${index}`} style={{
-                  width: 'clamp(120px, 30vw, 180px)',
-                  height: 'clamp(70px, 15vw, 100px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: '#f8f9fa',
-                  borderRadius: '12px',
-                  padding: '10px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
-                  transition: 'transform 0.3s ease',
-                  flexShrink: 0
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                >
-                  {partner.logo_url ? (
-                    <img 
-                      src={`http://localhost:8080/${partner.logo_url}`} 
-                      alt={partner.name} 
-                      title={partner.name}
-                      style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-                    />
-                  ) : (
-                    <span style={{ fontWeight: 'bold', color: '#666', fontSize: 'clamp(0.8rem, 2vw, 1rem)' }}>{partner.name}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Career Partners Section */}
+      <CareerOpportunitiesSection partners={partners} />
 
       <ReviewSection />
       

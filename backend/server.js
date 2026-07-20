@@ -19,9 +19,14 @@ import popupRoutes from "./src/routes/popupRoutes.js";
 import brochureRoutes from "./src/routes/brochureRoutes.js";
 import partnerRoutes from "./src/routes/partnerRoutes.js";
 import blogRoutes from "./src/routes/blogRoutes.js";
+import googleReviewRoutes from "./src/routes/googleReview.routes.js";
+import { initCronJobs } from "./src/cron/googleReviewSync.js";
 
 // Connect to Database
 connectDB();
+
+// Initialize Cron Jobs
+initCronJobs();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,6 +53,7 @@ app.use("/api/popup", popupRoutes);
 app.use("/api/brochure", brochureRoutes);
 app.use("/api/partners", partnerRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/google-reviews", googleReviewRoutes);
 app.use("/api", courseRoutes);
 
 // Static folder for uploads

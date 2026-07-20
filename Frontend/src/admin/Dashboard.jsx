@@ -3,7 +3,7 @@ import { Nav, Button, Dropdown } from 'react-bootstrap';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { 
   FaHome, FaImage, FaStar, FaQuoteLeft, FaSignOutAlt, 
-  FaBars, FaBell, FaSearch, FaUserAlt, FaCog, FaUsers, FaEnvelope, FaExternalLinkAlt, FaBook, FaClone, FaHandshake, FaBlog 
+  FaBars, FaBell, FaSearch, FaUserAlt, FaCog, FaUsers, FaEnvelope, FaExternalLinkAlt, FaBook, FaClone, FaHandshake, FaBlog, FaGoogle
 } from 'react-icons/fa';
 import './admin.css';
 import logo from '../assets/logo.png'; // Make sure you have this
@@ -34,6 +34,7 @@ const DashboardLayout = () => {
     { name: 'Brochure', path: '/admin/brochure', icon: <FaBook /> },
     { name: 'Career Partners', path: '/admin/partners', icon: <FaHandshake /> },
     { name: 'Blogs', path: '/admin/blogs', icon: <FaBlog /> },
+    { name: 'Google Reviews', path: '/admin/google-reviews', icon: <FaGoogle /> },
   ];
 
   return (
@@ -102,6 +103,11 @@ const DashboardLayout = () => {
         {/* Dynamic Page Content */}
         <div className="dashboard-content">
           <Outlet />
+        </div>
+        
+        {/* Admin Footer */}
+        <div style={{ textAlign: 'center', padding: '15px 20px', color: '#8b9bb4', fontSize: '0.85rem', marginTop: 'auto' }}>
+          &copy; 2026 DevSpectra. All Rights Reserved.
         </div>
       </div>
     </div>

@@ -25,6 +25,7 @@ import PopupManager from './admin/Popup/PopupManager.jsx';
 import BrochureManager from './admin/Brochure/BrochureManager.jsx';
 import PartnerManager from './admin/Partners/PartnerManager.jsx';
 import BlogManager from './admin/Blogs/BlogManager.jsx';
+import GoogleReviewsManager from './admin/GoogleReviews/GoogleReviews.jsx';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path="brochure" element={<BrochureManager />} />
           <Route path="partners" element={<PartnerManager />} />
           <Route path="blogs" element={<BlogManager />} />
+          <Route path="google-reviews" element={<GoogleReviewsManager />} />
         </Route>
       </Routes>
 
