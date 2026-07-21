@@ -211,7 +211,7 @@ const PartnerManager = () => {
                         <div style={{ height: '120px', background: '#f8f9fa', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '10px' }}>
                           {partner.logo_url ? (
                             <img 
-                              src={`http://localhost:8080/${partner.logo_url}`} 
+                              src={`${import.meta.env.VITE_FILE_BASE_URL}/${partner.logo_url}`} 
                               alt={partner.name} 
                               style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
                             />

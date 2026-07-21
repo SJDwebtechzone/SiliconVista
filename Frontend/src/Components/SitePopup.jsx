@@ -10,7 +10,7 @@ const SitePopup = () => {
   useEffect(() => {
     const fetchPopup = async () => {
       try {
-        const { data } = await axios.get('http://localhost:8080/api/popup');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/popup`);
         // Find the first active popup
         const activePopup = data.find(p => p.is_active);
         
@@ -103,7 +103,7 @@ const SitePopup = () => {
           {popupData.image && (
             <div style={{ backgroundColor: '#f8f9fa', padding: '15px', display: 'flex', justifyContent: 'center' }}>
               <img 
-                src={`http://localhost:8080/${popupData.image}`} 
+                src={`${import.meta.env.VITE_FILE_BASE_URL}/${popupData.image}`} 
                 alt={popupData.title} 
                 style={{ width: 'auto', maxWidth: '100%', height: 'auto', maxHeight: '200px', objectFit: 'contain' }} 
               />

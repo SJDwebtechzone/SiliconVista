@@ -42,7 +42,7 @@ const Courses = () => {
         
         // Trigger actual download instead of opening a popup tab
         const link = document.createElement('a');
-        link.href = `http://localhost:8080/${selectedBrochure.file_url}`;
+        link.href = `${import.meta.env.VITE_FILE_BASE_URL}/${selectedBrochure.file_url}`;
         link.setAttribute('download', selectedBrochure.title || 'brochure');
         link.target = '_blank';
         document.body.appendChild(link);
@@ -75,7 +75,7 @@ const Courses = () => {
 
       const fetchBrochures = async () => {
         try {
-          const { data } = await axios.get('http://localhost:8080/api/brochure');
+          const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/brochure`);
           setBrochures(data.filter(b => b.is_active));
         } catch (error) {
           console.error("Error fetching brochures:", error);

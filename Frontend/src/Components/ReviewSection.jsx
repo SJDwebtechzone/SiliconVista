@@ -136,7 +136,7 @@ const ReviewSection = () => {
                 <div className="d-flex align-items-center mt-4 border-top pt-3">
                   {review.photo ? (
                     <img 
-                      src={`http://localhost:8080/${review.photo}`} 
+                      src={`${import.meta.env.VITE_FILE_BASE_URL}/${review.photo}`} 
                       alt={review.name}
                       style={{ width: '55px', height: '55px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #00C6A0' }} 
                       className="me-3"

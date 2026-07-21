@@ -14,7 +14,7 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/blogs');
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/blogs`);
         // Only show published blogs
         const publishedBlogs = response.data.filter(b => b.is_published);
         setBlogs(publishedBlogs);
@@ -146,7 +146,7 @@ const Blogs = () => {
               >
                 <div style={{ height: '220px', background: '#f5f5f5', overflow: 'hidden' }}>
                   {blog.cover_image_url ? (
-                    <img src={`http://localhost:8080/${blog.cover_image_url}`} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                    <img src={`${import.meta.env.VITE_FILE_BASE_URL}/${blog.cover_image_url}`} alt={blog.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
                          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
                          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
                     />

@@ -14,7 +14,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/blogs/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error('Error fetching blog:', error);
@@ -71,7 +71,7 @@ const BlogDetail = () => {
           {/* OpenGraph */}
           <meta property="og:title" content={`${blog.title} | Silicon Vista`} />
           <meta property="og:description" content={blog.excerpt || `Read ${blog.title} on Silicon Vista.`} />
-          {blog.cover_image_url && <meta property="og:image" content={`http://localhost:8080/${blog.cover_image_url}`} />}
+          {blog.cover_image_url && <meta property="og:image" content={`${import.meta.env.VITE_FILE_BASE_URL}/${blog.cover_image_url}`} />}
           <meta property="og:url" content={`https://siliconvista.com/blogs/${id}`} />
           <meta property="og:type" content="article" />
 
@@ -79,7 +79,7 @@ const BlogDetail = () => {
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={`${blog.title} | Silicon Vista`} />
           <meta name="twitter:description" content={blog.excerpt || `Read ${blog.title} on Silicon Vista.`} />
-          {blog.cover_image_url && <meta name="twitter:image" content={`http://localhost:8080/${blog.cover_image_url}`} />}
+          {blog.cover_image_url && <meta name="twitter:image" content={`${import.meta.env.VITE_FILE_BASE_URL}/${blog.cover_image_url}`} />}
 
           {/* Structured Data: Article */}
           <script type="application/ld+json">
@@ -89,7 +89,7 @@ const BlogDetail = () => {
               "@type": "Article",
               "headline": "${blog.title.replace(/"/g, '\\"')}",
               "image": [
-                "${blog.cover_image_url ? `http://localhost:8080/${blog.cover_image_url}` : 'https://siliconvista.com/default-blog.png'}"
+                "${blog.cover_image_url ? `${import.meta.env.VITE_FILE_BASE_URL}/${blog.cover_image_url}` : 'https://siliconvista.com/default-blog.png'}"
               ],
               "datePublished": "${blog.created_at}",
               "author": {
@@ -113,7 +113,7 @@ const BlogDetail = () => {
       {/* Dynamic Hero Section */}
       <div style={{ 
         background: blog.cover_image_url 
-          ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(http://localhost:8080/${blog.cover_image_url}) center/cover no-repeat`
+          ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(${import.meta.env.VITE_FILE_BASE_URL}/${blog.cover_image_url}) center/cover no-repeat`
           : 'linear-gradient(135deg, #00C6A0, #2196F3, #7A1FA2)',
         padding: '120px 5% 150px',
         textAlign: 'center',

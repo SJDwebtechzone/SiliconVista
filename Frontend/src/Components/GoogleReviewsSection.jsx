@@ -20,8 +20,8 @@ const GoogleReviewsSection = () => {
     const fetchData = async () => {
       try {
         const [reviewsRes, statsRes] = await Promise.all([
-          axios.get('http://localhost:8080/api/google-reviews'),
-          axios.get('http://localhost:8080/api/google-reviews/stats')
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}/google-reviews`),
+          axios.get(`${import.meta.env.VITE_API_BASE_URL}/google-reviews/stats`)
         ]);
 
         if (reviewsRes.data.success) {

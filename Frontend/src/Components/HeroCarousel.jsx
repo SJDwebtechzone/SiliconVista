@@ -16,7 +16,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8080/api/banner");
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/banner`);
         // Optional: Filter only active banners, or show all. We'll show all or active if they want.
         // Assuming they want to show all banners they've added to the DB, or just the active one.
         // We will show all active banners. Since their DB might force only 1 active, 
@@ -103,7 +103,7 @@ const HeroCarousel = () => {
           <div className="hero-banner-bg" style={{
             width: '100%',
             height: '650px',
-            backgroundImage: banner.image ? `url(http://localhost:8080/${banner.image})` : 'none',
+            backgroundImage: banner.image ? `url(${import.meta.env.VITE_FILE_BASE_URL}/${banner.image})` : 'none',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             position: 'relative',

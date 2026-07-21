@@ -228,7 +228,7 @@ const PopupManager = () => {
                         <div style={{ height: '140px', backgroundColor: '#f8f9fa' }}>
                           {popup.image ? (
                             <img 
-                              src={`http://localhost:8080/${popup.image}`} 
+                              src={`${import.meta.env.VITE_FILE_BASE_URL}/${popup.image}`} 
                               alt={popup.title} 
                               style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                             />

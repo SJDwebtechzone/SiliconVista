@@ -24,7 +24,7 @@ const CareerOpportunitiesSection = ({ partners = [] }) => {
                 <div key={`top-${partner.id}-${index}`} className="partner-card">
                   {partner.logo_url ? (
                     <img 
-                      src={`http://localhost:8080/${partner.logo_url}`} 
+                      src={`${import.meta.env.VITE_FILE_BASE_URL}/${partner.logo_url}`} 
                       alt={partner.name} 
                       title={partner.name}
                     />
@@ -50,7 +50,7 @@ const CareerOpportunitiesSection = ({ partners = [] }) => {
                 <div key={`bottom-${partner.id}-${index}`} className="partner-card">
                   {partner.logo_url ? (
                     <img 
-                      src={`http://localhost:8080/${partner.logo_url}`} 
+                      src={`${import.meta.env.VITE_FILE_BASE_URL}/${partner.logo_url}`} 
                       alt={partner.name} 
                       title={partner.name}
                     />

@@ -18,7 +18,7 @@ const BrochureManager = () => {
 
   const fetchBrochures = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8080/api/brochure');
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/brochure`);
       setBrochures(data);
     } catch (err) {
       setError('Error fetching brochures');
@@ -47,10 +47,10 @@ const BrochureManager = () => {
       const config = { headers: { Authorization: `Bearer ${token}` } };
       
       if (editingId) {
-        await axios.put(`http://localhost:8080/api/brochure/${editingId}`, data, config);
+        await axios.put(`${import.meta.env.VITE_API_BASE_URL}/brochure/${editingId}`, data, config);
         setSuccess('Brochure updated successfully!');
       } else {
-        await axios.post('http://localhost:8080/api/brochure', data, config);
+        await axios.post(`${import.meta.env.VITE_API_BASE_URL}/brochure`, data, config);
         setSuccess('Brochure created successfully!');
       }
       
@@ -74,7 +74,7 @@ const BrochureManager = () => {
     if (window.confirm('Are you sure you want to delete this brochure?')) {
       try {
         const token = localStorage.getItem('adminToken');
-        await axios.delete(`http://localhost:8080/api/brochure/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/brochure/${id}`, { headers: { Authorization: `Bearer ${token}` } });
         fetchBrochures();
       } catch (err) {
         alert('Error deleting brochure');
@@ -235,7 +235,7 @@ const BrochureManager = () => {
                             </div>
                           </div>
                           <a 
-                            href={`http://localhost:8080/${brochure.file_url}`} 
+                            href={`${import.meta.env.VITE_FILE_BASE_URL}/${brochure.file_url}`} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="btn btn-sm text-white rounded-pill mt-1"

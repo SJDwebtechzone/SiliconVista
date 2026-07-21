@@ -239,7 +239,7 @@ const BannerManager = () => {
                         <div style={{ height: '140px', backgroundColor: '#f8f9fa' }}>
                           {banner.image ? (
                             <img 
-                              src={`http://localhost:8080/${banner.image}`} 
+                              src={`${import.meta.env.VITE_FILE_BASE_URL}/${banner.image}`} 
                               alt={banner.title} 
                               style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                             />

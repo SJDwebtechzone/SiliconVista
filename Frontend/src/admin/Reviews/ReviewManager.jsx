@@ -190,7 +190,7 @@ const ReviewManager = () => {
                 <td className="px-3">
                   {review.photo ? (
                     <img 
-                      src={`http://localhost:8080/${review.photo}`} 
+                      src={`${import.meta.env.VITE_FILE_BASE_URL}/${review.photo}`} 
                       alt="Customer" 
                       style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} 
                     />
@@ -276,7 +276,7 @@ const ReviewManager = () => {
               <div className="d-flex align-items-center mb-4">
                 {selectedReview.photo ? (
                   <img 
-                    src={`http://localhost:8080/${selectedReview.photo}`} 
+                    src={`${import.meta.env.VITE_FILE_BASE_URL}/${selectedReview.photo}`} 
                     alt="Customer" 
                     className="me-3"
                     style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }} 
