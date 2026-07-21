@@ -156,6 +156,7 @@ const Navbar = () => {
           align-items: center;
           padding: 24px 32px;
           width: 100%;
+          box-sizing: border-box;
         }
 
         .mobile-logo {
@@ -221,6 +222,8 @@ const Navbar = () => {
           align-items: center;
           gap: 30px;
           padding: 0 32px;
+          width: 100%;
+          box-sizing: border-box;
         }
 
         .nav-item-wrapper {
@@ -288,6 +291,7 @@ const Navbar = () => {
           gap: 16px;
           padding: 32px;
           width: 100%;
+          box-sizing: border-box;
           opacity: 0;
           transform: translateY(20px);
         }

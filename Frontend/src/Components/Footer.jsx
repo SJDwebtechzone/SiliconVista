@@ -75,7 +75,10 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <div className="icon-wrapper"><FaPhoneAlt /></div>
-                <span>+91 79045 13540</span>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <a href="tel:+916369498025" style={{ color: 'inherit', textDecoration: 'none' }}>+91 63694 98025</a>
+                  <a href="tel:+917904513540" style={{ marginTop: '5px', color: 'inherit', textDecoration: 'none' }}>+91 79045 13540</a>
+                </div>
               </div>
               <div className="contact-item" style={{ alignItems: 'flex-start', textAlign: 'left' }}>
                 <div className="icon-wrapper" style={{ flexShrink: 0 }}><FaMapMarkerAlt /></div>

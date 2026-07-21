@@ -214,6 +214,7 @@ const About = () => {
 
       </div>
 
+      <div style={{ height: '50px', background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 100%)', width: '100%', marginTop: 'auto' }}></div>
       <Footer />
     </div>
   );

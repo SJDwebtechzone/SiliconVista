@@ -254,7 +254,10 @@ const Contact = () => {
                                     <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0 }}>
                                         <FaPhoneAlt size={24} />
                                     </div>
-                                    <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem' }}>+91 79045 13540</p>
+                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                        <a href="tel:+916369498025" style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', textDecoration: 'none' }}>+91 63694 98025</a>
+                                        <a href="tel:+917904513540" style={{ margin: '5px 0 0 0', color: 'rgba(255,255,255,0.9)', fontSize: '1.1rem', textDecoration: 'none' }}>+91 79045 13540</a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -278,6 +281,7 @@ const Contact = () => {
                 </div>
             </div>
 
+            <div style={{ height: '50px', background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 100%)', width: '100%', marginTop: 'auto' }}></div>
             <Footer />
             <style>{`
                 @keyframes fadeIn {

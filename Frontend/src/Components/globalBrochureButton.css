@@ -1,0 +1,126 @@
+/* Floating Global Brochure Button */
+.global-brochure-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #00C6A0, #009b7c);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 18px; /* Perfectly center the 24px icon in 60px circle */
+  cursor: pointer;
+  box-shadow: -5px 5px 20px rgba(0, 198, 160, 0.4);
+  z-index: 9999;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Hover to expand */
+.global-brochure-button:hover {
+  width: 230px;
+}
+
+.global-brochure-button .btn-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.global-brochure-button .btn-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  margin-left: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.global-brochure-button:hover .btn-text {
+  opacity: 1;
+}
+
+/* On mobile, keep it slightly smaller but expandable */
+@media (max-width: 768px) {
+  .global-brochure-button {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 198, 160, 0.5);
+  }
+
+  .global-brochure-button:hover {
+    width: 60px; /* Do not expand to pill on mobile, keep it circular */
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .global-brochure-button .btn-text {
+    display: none; /* Hide text completely on mobile */
+  }
+}
+
+/* Modal List Styling */
+.brochure-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px; /* Prevent content from hugging the edge if scrolling */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  -webkit-overflow-scrolling: touch;
+}
+
+.brochure-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.brochure-list {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.brochure-list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.brochure-list-item:hover {
+  border-color: #00C6A0;
+  box-shadow: 0 10px 25px rgba(0, 198, 160, 0.15);
+  transform: translateY(-2px);
+}
+
+.brochure-list-item .icon-wrapper {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(229, 57, 53, 0.1);
+  border-radius: 10px;
+}
+
+.brochure-list-item .brochure-title {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+  font-size: 1.05rem;
+}

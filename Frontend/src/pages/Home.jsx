@@ -434,49 +434,20 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='faqDiv' style={{
-        padding: '60px 5%',
-        background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <FeatureParticles theme="light" />
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          gap: '40px',
-          alignItems: 'center',
-          position: 'relative',
-          zIndex: 1
-        }}>
-          {/* Left Column: Image & Heading */}
-          <div style={{
-            flex: '1 1 400px',
-            textAlign: 'center'
-          }}>
-            <h1 style={{ color: '#073738', marginBottom: '10px' }}>Have Doubts?</h1>
-            <h2 style={{ color: '#00C6A0', marginBottom: '30px' }}>Read Our FAQs</h2>
-            <img 
-              src={faqImage} 
-              alt="FAQ Illustration" 
-              style={{ 
-                width: '100%', 
-                maxWidth: '350px', 
-                objectFit: 'contain', 
-                borderRadius: '30px',
-                border: '6px solid #fff',
-                boxShadow: '0 20px 50px rgba(0, 198, 160, 0.2), 0 5px 15px rgba(0,0,0,0.05)',
-                transition: 'transform 0.4s ease'
-              }} 
-              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-10px)'}
-              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-            />
-          </div>
 
-          <FaqAccordion />
-        </div>
+
+
+
+      {/* Google Reviews Section */}
+      <GoogleReviewsSection />
+
+      {/* Career Partners Section */}
+      <CareerOpportunitiesSection partners={partners} />
+
+      <ReviewSection />
+      
+      <div style={{ background: '#f8f9fa', paddingBottom: '3rem' }}>
+        <ReviewForm />
       </div>
 
       {/* Admission CTA Section */}
@@ -522,16 +493,49 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Google Reviews Section */}
-      <GoogleReviewsSection />
+      <div className='faqDiv' style={{
+        padding: '60px 5%',
+        background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <FeatureParticles theme="light" />
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          gap: '40px',
+          alignItems: 'center',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          {/* Left Column: Image & Heading */}
+          <div style={{
+            flex: '1 1 400px',
+            textAlign: 'center'
+          }}>
+            <h1 style={{ color: '#073738', marginBottom: '10px' }}>Have Doubts?</h1>
+            <h2 style={{ color: '#00C6A0', marginBottom: '30px' }}>Read Our FAQs</h2>
+            <img 
+              src={faqImage} 
+              alt="FAQ Illustration" 
+              style={{ 
+                width: '100%', 
+                maxWidth: '350px', 
+                objectFit: 'contain', 
+                borderRadius: '30px',
+                border: '6px solid #fff',
+                boxShadow: '0 20px 50px rgba(0, 198, 160, 0.2), 0 5px 15px rgba(0,0,0,0.05)',
+                transition: 'transform 0.4s ease'
+              }} 
+              onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-10px)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+            />
+          </div>
 
-      {/* Career Partners Section */}
-      <CareerOpportunitiesSection partners={partners} />
-
-      <ReviewSection />
-      
-      <div style={{ background: '#f8f9fa', paddingBottom: '3rem' }}>
-        <ReviewForm />
+          <FaqAccordion />
+        </div>
       </div>
 
       <Footer />

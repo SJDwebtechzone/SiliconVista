@@ -90,13 +90,22 @@ p {
 }
 
 @media (max-width: 768px) {
-  .honeycomb {
-    transform: scale(0.9);
+  .hex {
+    width: 120px;
+    height: 138px;
+  }
+  .honeycomb-row {
+    margin-top: -30px;
   }
 }
 @media (max-width: 480px) {
-  .honeycomb {
-    transform: scale(0.65);
+  .hex {
+    width: 80px;
+    height: 92px;
+    margin: 0 2px;
+  }
+  .honeycomb-row {
+    margin-top: -20px;
   }
 }
 

@@ -13,6 +13,7 @@ import Contact from './pages/Contact.jsx';
 import Blogs from './pages/Blogs.jsx';
 import BlogDetail from './pages/BlogDetail.jsx';
 import { useLocation } from 'react-router-dom';
+import GlobalBrochureButton from './Components/GlobalBrochureButton.jsx';
 
 // Admin Components
 import Login from './admin/Login.jsx';
@@ -37,6 +38,7 @@ function App() {
     <div>
       {!isAdminRoute && <Navbar />}
       {!isAdminRoute && <ScrollToTop />}
+      {!isAdminRoute && <GlobalBrochureButton />}
       
       <Routes>
         {/* Public Routes */}

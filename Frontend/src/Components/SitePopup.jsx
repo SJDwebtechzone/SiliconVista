@@ -31,9 +31,9 @@ const SitePopup = () => {
   return (
     <div style={{
       position: 'fixed',
-      bottom: '30px',
-      right: '30px',
-      width: '90vw',
+      bottom: '20px',
+      right: '20px',
+      width: 'calc(100vw - 40px)',
       maxWidth: '356px',
       zIndex: 9999,
       animation: 'slideInRight 0.5s ease-out'
@@ -84,17 +84,19 @@ const SitePopup = () => {
               position: 'absolute',
               top: '10px',
               right: '10px',
-              background: 'rgba(0,0,0,0.5)',
+              background: '#00C6A0',
               color: 'white',
-              border: 'none',
+              border: '2px solid white',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
               borderRadius: '50%',
-              width: '30px',
-              height: '30px',
+              width: '35px',
+              height: '35px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              zIndex: 10
+              zIndex: 99,
+              fontSize: '16px'
             }}
           >
             <FaTimes />
