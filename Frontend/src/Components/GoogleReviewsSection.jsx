@@ -16,9 +16,23 @@ const GoogleReviewsSection = () => {
     lastSync: null
   });
 
+  const [isVisible, setIsVisible] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Fetch visibility setting first
+        try {
+          const settingRes = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/settings/show_google_reviews`);
+          if (settingRes.data && settingRes.data.value === 'false') {
+            setIsVisible(false);
+            setLoading(false);
+            return; // Exit early if we don't need to show it
+          }
+        } catch (settingErr) {
+          // Setting might not exist yet, default to true
+        }
+
         const [reviewsRes, statsRes] = await Promise.all([
           axios.get(`${import.meta.env.VITE_API_BASE_URL}/google-reviews`),
           axios.get(`${import.meta.env.VITE_API_BASE_URL}/google-reviews/stats`)
@@ -45,6 +59,10 @@ const GoogleReviewsSection = () => {
 
     fetchData();
   }, []);
+
+  if (!isVisible) {
+    return null;
+  }
 
   const renderStars = (rating) => {
     return Array(5).fill(0).map((_, i) => (

@@ -11,11 +11,16 @@ export const syncGoogleReviews = async (req, res) => {
     });
 
   } catch (err) {
-    console.error(err);
+    console.error("Sync Google Reviews Error:", err.message);
+    if (err.details) {
+      console.error("Complete Google API Response Details:");
+      console.error(JSON.stringify(err.details.fullResponse, null, 2));
+    }
 
-    res.status(500).json({
+    res.status(err.details?.httpStatus || 500).json({
       success: false,
-      message: err.message
+      message: err.message,
+      googleApiError: err.details || null
     });
   }
 };

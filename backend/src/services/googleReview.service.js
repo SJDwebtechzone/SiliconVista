@@ -15,6 +15,19 @@ export const syncReviews = async () => {
 
   const url = `https://places.googleapis.com/v1/places/${placeId}`;
 
+  // Log outgoing request details as requested
+  console.log("=== OUTGOING GOOGLE PLACES API REQUEST ===");
+  console.log("URL:", url);
+  console.log("Method: GET");
+  console.log("Place ID:", placeId);
+  console.log("Loaded API Key (last 6 chars):", apiKey.slice(-6));
+  console.log("Headers:");
+  console.log({
+    "X-Goog-Api-Key": `***${apiKey.slice(-6)}`,
+    "X-Goog-FieldMask": "id,displayName,rating,userRatingCount,reviews"
+  });
+  console.log("==========================================");
+
   const response = await fetch(url, {
     method: "GET",
     headers: {
@@ -29,11 +42,18 @@ export const syncReviews = async () => {
   console.log(JSON.stringify(data, null, 2));
 
   if (!response.ok) {
-    // Specifically handle the HTTP Referrer block for a better error message
-    if (data.error && data.error.reason === 'API_KEY_HTTP_REFERRER_BLOCKED') {
-      throw new Error('Google API Error: Your API key has HTTP Referrer restrictions. Backend requests do not have referrers. Please go to Google Cloud Console and change your API Key restriction to "IP addresses" or "None".');
-    }
-    throw new Error(data.error?.message || "Failed to fetch Google reviews.");
+    const errorDetails = {
+      httpStatus: response.status,
+      status: data.error?.status || "UNKNOWN",
+      message: data.error?.message || "Failed to fetch Google reviews.",
+      fullResponse: data
+    };
+    
+    console.error("Google Places API Error Details:", JSON.stringify(errorDetails, null, 2));
+
+    const error = new Error(errorDetails.message);
+    error.details = errorDetails;
+    throw error;
   }
 
   const reviews = data.reviews || [];

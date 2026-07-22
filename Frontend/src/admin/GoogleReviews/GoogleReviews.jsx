@@ -10,10 +10,23 @@ const GoogleReviewsManager = () => {
   const [syncing, setSyncing] = useState(false);
   const [syncStatus, setSyncStatus] = useState(null); // { type: 'success' | 'error', message: '', details: {} }
   const [lastSyncTime, setLastSyncTime] = useState(null);
+  const [showOnFrontend, setShowOnFrontend] = useState(true);
 
   const fetchStatusAndReviews = async () => {
     try {
       setLoading(true);
+      
+      // Fetch Setting
+      try {
+        const settingRes = await axios.get('/api/settings/show_google_reviews');
+        if (settingRes.data) {
+          setShowOnFrontend(settingRes.data.value !== 'false');
+        }
+      } catch (err) {
+        // Default to true if not set
+        setShowOnFrontend(true);
+      }
+
       // Fetch Status
       const statusRes = await axios.get('/api/google-reviews/status');
       if (statusRes.data.success && statusRes.data.data.lastSyncTime) {
@@ -41,6 +54,23 @@ const GoogleReviewsManager = () => {
   useEffect(() => {
     fetchStatusAndReviews();
   }, []);
+
+  const handleToggleFrontend = async () => {
+    const newValue = !showOnFrontend;
+    setShowOnFrontend(newValue); // Optimistic UI update
+    try {
+      // Create an admin axios instance if you use tokens, but here we'll assume /api/settings handles it or session is present.
+      // If we get 401/403, we might need auth headers. The backend protects PUT /api/settings/:key
+      const token = localStorage.getItem('adminToken');
+      const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
+      
+      await axios.put('/api/settings/show_google_reviews', { value: newValue.toString() }, config);
+    } catch (err) {
+      console.error('Error updating setting:', err);
+      alert('Failed to update visibility setting. Please try again.');
+      setShowOnFrontend(!newValue); // Revert on failure
+    }
+  };
 
   const handleSync = async () => {
     try {
@@ -91,8 +121,28 @@ const GoogleReviewsManager = () => {
 
   return (
     <div className="admin-content-inner">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="page-title m-0">Google Reviews Management</h2>
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+        <div>
+          <h2 className="page-title m-0">Google Reviews Management</h2>
+          <div className="d-flex align-items-center mt-2">
+            <span className="me-2 fw-semibold text-muted">Show Section on Website:</span>
+            <div className="form-check form-switch m-0 fs-5">
+              <input 
+                className="form-check-input" 
+                type="checkbox" 
+                role="switch" 
+                id="toggleFrontendVisibility"
+                checked={showOnFrontend}
+                onChange={handleToggleFrontend}
+                disabled={loading}
+                style={{ cursor: 'pointer' }}
+              />
+              <label className="form-check-label ms-2 fs-6 text-muted" htmlFor="toggleFrontendVisibility">
+                {showOnFrontend ? 'Enabled' : 'Hidden'}
+              </label>
+            </div>
+          </div>
+        </div>
         <Button 
           variant="primary" 
           className="d-flex align-items-center gap-2 custom-btn px-4"
