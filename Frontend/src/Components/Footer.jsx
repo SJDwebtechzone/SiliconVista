@@ -35,7 +35,7 @@ const Footer = () => {
               in VLSI and advanced technologies.
             </p>
             <div className="social-links mt-3">
-              <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+              <a href="https://www.facebook.com/siliconvista" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
               <a href="https://www.linkedin.com/company/silicon-vista/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
               <a href="https://www.instagram.com/siliconvista/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
               <a href="https://www.youtube.com/@SiliconVista" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>

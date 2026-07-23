@@ -353,8 +353,8 @@ const Courses = () => {
 
       <div style={{ backgroundColor: '#fff', padding: '80px 5%' }} id='cd'>
           <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <h1 style={{ color: '#112240', marginBottom: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-              Course Content
+            <h1 style={{ marginBottom: '40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+              <span style={{ background: 'linear-gradient(90deg, #00C6A0, #2196F3)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Course Content</span>
               <div style={{ width: '60px', height: '4px', background: 'linear-gradient(90deg, #00C6A0, #2196F3)', borderRadius: '4px' }}></div>
             </h1>
 

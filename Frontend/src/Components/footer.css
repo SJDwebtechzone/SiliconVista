@@ -6,6 +6,9 @@
   width: 100%;
   position: relative;
   background-color: white; /* Background behind the top wave */
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin-top: -1px;
 }
 
 /* SVG WAVE DIVIDER AT TOP */
@@ -196,6 +199,7 @@
   background-color: #ffffff;
   padding: 20px 5%;
   border-top: 1px solid #e2e8f0;
+  box-sizing: border-box;
 }
 
 .bottom-bar-container {
