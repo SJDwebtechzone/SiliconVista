@@ -192,7 +192,7 @@ const Home = () => {
                 "@id": "https://siliconvista.com/#localBusiness",
                 "name": "Silicon Vista VLSI Training Institute",
                 "image": "https://siliconvista.com/campus.jpg",
-                "telephone": "+91-7904513540",
+                "telephone": "+91-6369498025",
                 "address": {
                   "@type": "PostalAddress",
                   "streetAddress": "Tiruvallur",

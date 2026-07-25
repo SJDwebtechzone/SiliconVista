@@ -11,9 +11,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
-  const phoneNumber = "+91 79045 13540";
+  const phoneNumber = "+91 63694 98025";
   const whatsappUrl = "https://wa.me/917904513540?text=Hi,%20I%20want%20to%20know%20about%20VLSI%20courses";
-  const callUrl = "tel:+917904513540";
+  const callUrl = "tel:+916369498025";
 
   // Detect scroll to apply shadow
   useEffect(() => {

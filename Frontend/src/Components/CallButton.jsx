@@ -5,7 +5,7 @@ import './whatsapp.css';
 
 const CallButton = () => {
 
-  const phone = "+91 79045 13540";
+  const phone = "+91 63694 98025";
 
   const handleCallClick = () => {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
