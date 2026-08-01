@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaShieldAlt } from 'react-icons/fa';
 import './admin.css';
 import logo from '../assets/logo.png'; // Assuming a logo exists or I'll use text if it fails
 import FeatureParticles from '../Components/FeatureParticles';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -92,6 +93,12 @@ const Login = () => {
             <Button type="submit" className="w-100 login-submit-btn" disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}
             </Button>
+
+            <div className="text-center mt-3">
+              <Link to="/admin/forgot-password" style={{ textDecoration: 'none', fontSize: '0.9rem' }}>
+                Forgot Password?
+              </Link>
+            </div>
 
             <div className="secure-access-text text-center text-muted small mt-4">
               <FaShieldAlt className="text-primary me-2" /> Secure Admin Access

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Nav, Button, Dropdown } from 'react-bootstrap';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
+
 import { 
   FaHome, FaImage, FaStar, FaQuoteLeft, FaSignOutAlt, 
-  FaBars, FaBell, FaSearch, FaUserAlt, FaCog, FaUsers, FaEnvelope, FaExternalLinkAlt, FaBook, FaClone, FaHandshake, FaBlog, FaGoogle
+  FaBars, FaBell, FaSearch, FaUserAlt, FaCog, FaUsers, FaEnvelope, FaExternalLinkAlt, FaBook, FaClone, FaHandshake, FaBlog, FaGoogle, FaNewspaper
 } from 'react-icons/fa';
 import './admin.css';
 import logo from '../assets/logo.png'; // Make sure you have this
@@ -11,6 +12,15 @@ import logo from '../assets/logo.png'; // Make sure you have this
 const DashboardLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [adminInfo, setAdminInfo] = useState(() => JSON.parse(localStorage.getItem('adminInfo') || '{}'));
+
+  useEffect(() => {
+    const handleStorageUpdate = () => {
+      setAdminInfo(JSON.parse(localStorage.getItem('adminInfo') || '{}'));
+    };
+    window.addEventListener('storage', handleStorageUpdate);
+    return () => window.removeEventListener('storage', handleStorageUpdate);
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -33,8 +43,10 @@ const DashboardLayout = () => {
     { name: 'Popup', path: '/admin/popup', icon: <FaClone /> },
     { name: 'Brochure', path: '/admin/brochure', icon: <FaBook /> },
     { name: 'Career Partners', path: '/admin/partners', icon: <FaHandshake /> },
+    { name: 'News & Events', path: '/admin/news-events', icon: <FaNewspaper /> },
     { name: 'Blogs', path: '/admin/blogs', icon: <FaBlog /> },
     { name: 'Google Reviews', path: '/admin/google-reviews', icon: <FaGoogle /> },
+    { name: 'Account Settings', path: '/admin/account-settings', icon: <FaCog /> }
   ];
 
   return (
@@ -70,7 +82,7 @@ const DashboardLayout = () => {
         </div>
 
         <div className="sidebar-footer">
-          <Button variant="outline-light" className="btn-view-website mb-3" onClick={() => navigate('/')}>
+          <Button variant="outline-light" className="btn-view-website mb-3" onClick={() => window.open('/', '_blank')}>
             View Website <FaExternalLinkAlt />
           </Button>
         </div>
@@ -87,7 +99,7 @@ const DashboardLayout = () => {
                   <FaUserAlt size={16} />
                 </div>
                 <div className="navbar-profile-info">
-                  <span className="navbar-profile-name" style={{color: 'var(--admin-text-main)'}}>Admin</span>
+                  <span className="navbar-profile-name" style={{color: 'var(--admin-text-main)'}}>{adminInfo.name || 'Admin'}</span>
                   <span className="navbar-profile-role" style={{color: 'var(--admin-text-muted)'}}>Super Admin</span>
                 </div>
               </Dropdown.Toggle>

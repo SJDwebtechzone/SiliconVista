@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-
 import sender from "./routes/sender.js";
 import { connectDB } from "./src/config/db.js";
 import adminRoutes from "./src/routes/adminRoutes.js";
@@ -21,6 +20,7 @@ import partnerRoutes from "./src/routes/partnerRoutes.js";
 import blogRoutes from "./src/routes/blogRoutes.js";
 import googleReviewRoutes from "./src/routes/googleReview.routes.js";
 import { initCronJobs } from "./src/cron/googleReviewSync.js";
+import newsEventRoutes from "./src/routes/newsEventRoutes.js";
 
 // Connect to Database
 connectDB();
@@ -35,7 +35,18 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ["https://siliconvista.in", "http://siliconvista.in", "http://localhost:5173", "http://localhost:3000"],
+  origin: function (origin, callback) {
+    if (
+      !origin ||
+      origin === "https://siliconvista.in" ||
+      origin === "http://siliconvista.in" ||
+      /^http:\/\/localhost:\d+$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 
@@ -49,6 +60,7 @@ app.use("/api/banner", bannerRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/admin/testimonials", testimonialRoutes); // Admin side testimonials
 app.use("/api/settings", settingRoutes);
+app.use("/api/news-events", newsEventRoutes);
 app.use("/api/popup", popupRoutes);
 app.use("/api/brochure", brochureRoutes);
 app.use("/api/partners", partnerRoutes);
@@ -69,4 +81,3 @@ const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
-

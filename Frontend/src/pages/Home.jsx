@@ -24,6 +24,7 @@ import faqImage from '../assets/what.png';
 import CircuitBackground from '../Components/CircuitBackground';
 import ParticleBackground from '../Components/ParticleBackground';
 import FeatureParticles from '../Components/FeatureParticles';
+import NewsEventsSection from '../Components/NewsEventsSection.jsx';
 
 
 
@@ -437,6 +438,11 @@ const Home = () => {
 
 
 
+
+      
+
+         {/* news event section*/}
+      <NewsEventsSection />
 
       {/* Google Reviews Section */}
       <GoogleReviewsSection />

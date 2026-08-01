@@ -145,8 +145,8 @@ const PartnerManager = () => {
 
                 <Form.Group className="mb-4">
                   <div className="d-flex flex-column mb-2">
-                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>Company Logo</Form.Label>
-                    <small className="text-muted">Allowed: .jpg, .png, .webp (Transparent BG recommended)</small>
+                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>Company Logo <span className="text-danger">*</span>  </Form.Label>
+                    <small className="text-muted">Allowed: .jpg, .png, .webp (Transparent BG recommended) | Max: 200KB</small>
                   </div>
                   <div 
                     className="border-dashed p-4 text-center mt-2 bg-light" 
@@ -156,7 +156,22 @@ const PartnerManager = () => {
                       type="file" 
                       id="partnerLogoInput"
                       accept=".jpg,.jpeg,.png,.gif,.webp"
-                      onChange={e => setFile(e.target.files[0])} 
+                      onChange={e => {
+                        const selected = e.target.files[0];
+                        if (!selected) return;
+
+                        const MAX_SIZE = 200 * 1024; // 200KB
+
+                        if (selected.size > MAX_SIZE) {
+                          setError('Logo size should not exceed 200KB.');
+                          e.target.value = '';
+                          setFile(null);
+                          return;
+                        }
+
+                        setError('');
+                        setFile(selected);
+                      }} 
                       required={!editingId}
                       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
                     />
@@ -193,7 +208,7 @@ const PartnerManager = () => {
           </Card>
         </div>
 
-        {/* Current Partners Preview Section */}
+       
         <div className="col-md-7">
           <Card className="shadow-sm border-0 h-100" style={{ borderRadius: '15px', maxHeight: '600px', overflowY: 'auto' }}>
             <Card.Body className="p-4">

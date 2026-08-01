@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Form, Button, Alert, Spinner } from 'react-bootstrap';
 import axios from 'axios';
-import { FaDownload, FaFilePdf } from 'react-icons/fa';
+import { FaDownload, FaFilePdf, FaCheckCircle } from 'react-icons/fa';
 import './globalBrochureButton.css'; 
 
 const GlobalBrochureButton = () => {
@@ -62,7 +62,7 @@ const GlobalBrochureButton = () => {
       link.click();
       document.body.removeChild(link);
       
-      handleClose();
+      setStep(3);
     } catch (err) {
       setBrochureError(err.response?.data?.message || 'Error processing request. Please try again.');
     } finally {
@@ -94,7 +94,9 @@ const GlobalBrochureButton = () => {
       <Modal show={showModal} onHide={handleClose} centered scrollable size="md">
         <Modal.Header closeButton style={{ background: '#f8f9fa', borderBottom: '2px solid #00C6A0' }}>
           <Modal.Title style={{ color: '#073738', fontWeight: 'bold' }}>
-            {step === 1 ? 'Download Brochure' : `Download ${selectedBrochure?.title}`}
+            {step === 1 && 'Download Brochure'}
+            {step === 2 && `Download ${selectedBrochure?.title}`}
+            {step === 3 && 'Thank You!'}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body style={{ padding: '24px' }}>
@@ -201,6 +203,23 @@ const GlobalBrochureButton = () => {
                   )}
                 </Button>
               </Form>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="text-center py-4">
+              <FaCheckCircle size={60} color="#00C6A0" className="mb-3" />
+              <h4 style={{ color: '#073738', fontWeight: 'bold' }}>Thank You!</h4>
+              <p className="text-muted mb-4">
+                Your brochure download has started. If it didn't open automatically, check your browser's downloads.
+              </p>
+              <Button 
+                className="fw-bold border-0" 
+                style={{ background: 'linear-gradient(90deg, #00C6A0, #2196F3)', padding: '10px 30px' }}
+                onClick={handleClose}
+              >
+                Close
+              </Button>
             </div>
           )}
 

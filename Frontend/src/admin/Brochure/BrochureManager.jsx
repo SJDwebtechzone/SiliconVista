@@ -145,8 +145,10 @@ const BrochureManager = () => {
 
                 <Form.Group className="mb-4">
                   <div className="d-flex flex-column mb-2">
-                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>Brochure File</Form.Label>
-                    <small className="text-muted">Allowed: .pdf, .doc, .docx, images</small>
+                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>
+                      Brochure File <span className="text-danger">*</span>
+                    </Form.Label>
+                    <small className="text-muted">Allowed: .pdf, .doc, .docx, images | Max: 200KB</small>
                   </div>
                   <div 
                     className="border-dashed p-4 text-center mt-2 bg-light" 
@@ -156,7 +158,22 @@ const BrochureManager = () => {
                       type="file" 
                       id="brochureFileInput"
                       accept=".pdf,.doc,.docx,image/*"
-                      onChange={e => setFile(e.target.files[0])} 
+                      onChange={e => {
+                        const selected = e.target.files[0];
+                        if (!selected) return;
+
+                        const MAX_SIZE = 200 * 1024; // 2MB
+
+                        if (selected.size > MAX_SIZE) {
+                          setError('File size should not exceed 200kB.');
+                          e.target.value = '';
+                          setFile(null);
+                          return;
+                        }
+
+                        setError('');
+                        setFile(selected);
+                      }} 
                       required={!editingId}
                       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0, cursor: 'pointer' }}
                     />

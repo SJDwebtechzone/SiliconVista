@@ -8,6 +8,10 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import { ContactProvider } from './context/ContactContext.jsx';
 
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
       <HelmetProvider>

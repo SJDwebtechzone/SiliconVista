@@ -13,7 +13,7 @@ export const ContactProvider = ({ children }) => {
         setSuccessMsg("");
         setErrorMsg("");
 
-        const url = "/contact";
+        const url = `${import.meta.env.VITE_API_BASE_URL}/contact`;
 
         try{
             const res = await axios.post(url,formData);

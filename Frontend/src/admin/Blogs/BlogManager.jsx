@@ -41,7 +41,20 @@ const BlogManager = () => {
   };
 
   const handleFileChange = (e) => {
-    setBlogImage(e.target.files[0]);
+    const selected = e.target.files[0];
+    if (!selected) return;
+
+    const MAX_SIZE = 200 * 1024 ; // 2MB
+
+    if (selected.size > MAX_SIZE) {
+      setError('Cover image size should not exceed 200KB.');
+      e.target.value = '';
+      setBlogImage(null);
+      return;
+    }
+
+    setError('');
+    setBlogImage(selected);
   };
 
   const handleSubmit = async (e) => {
@@ -192,7 +205,8 @@ const BlogManager = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                  <Form.Label className="fw-bold text-secondary">Cover Image</Form.Label>
+                  <Form.Label className="fw-bold text-secondary">Cover Image <span className="text-danger">*</span></Form.Label>
+                  <small className="text-muted d-block mb-2">Max: 200KB</small>
                   <div className="bg-light p-3 text-center" style={{ borderRadius: '10px', border: '2px dashed #ccc' }}>
                     <Form.Control 
                       type="file" 

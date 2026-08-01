@@ -27,7 +27,10 @@ import BrochureManager from './admin/Brochure/BrochureManager.jsx';
 import PartnerManager from './admin/Partners/PartnerManager.jsx';
 import BlogManager from './admin/Blogs/BlogManager.jsx';
 import GoogleReviewsManager from './admin/GoogleReviews/GoogleReviews.jsx';
-
+import NewsEventManager from './admin/NewsEvents/NewsEventManager.jsx';
+import AccountSettings from './admin/AccountSettings/AccountSettings.jsx';
+import ForgotPassword from './admin/ForgotPassword.jsx';
+import ResetPassword from './admin/ResetPassword.jsx';
 
 function App() {
   const location = useLocation();
@@ -52,6 +55,8 @@ function App() {
         {/* Admin Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+        <Route path="/admin/reset-password/:token" element={<ResetPassword />} />
         <Route path="/admin" element={<DashboardLayout />}>
           <Route path="dashboard" element={<DashboardHome />} />
           <Route path="banner" element={<BannerManager />} />
@@ -60,8 +65,10 @@ function App() {
           <Route path="popup" element={<PopupManager />} />
           <Route path="brochure" element={<BrochureManager />} />
           <Route path="partners" element={<PartnerManager />} />
+          <Route path="news-events" element={<NewsEventManager />} />
           <Route path="blogs" element={<BlogManager />} />
           <Route path="google-reviews" element={<GoogleReviewsManager />} />
+           <Route path="account-settings" element={<AccountSettings />} />
         </Route>
       </Routes>
 

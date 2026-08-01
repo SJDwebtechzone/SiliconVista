@@ -27,7 +27,20 @@ const ReviewForm = () => {
   };
 
   const handleFileChange = (e) => {
-    setPhotoFile(e.target.files[0]);
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const MAX_SIZE = 200 * 1024; // 2MB in bytes
+
+    if (file.size > MAX_SIZE) {
+      setStatus({ type: 'danger', message: '* File size should not exceed 200KB.' });
+      e.target.value = ''; 
+      setPhotoFile(null);
+      return;
+    }
+
+    setStatus({ type: '', message: '' }); // clear any previous error
+    setPhotoFile(file);
   };
 
   const handleSubmit = async (e) => {
@@ -86,7 +99,7 @@ const ReviewForm = () => {
             <Form.Group className="mb-4">
               <div className="d-flex justify-content-between mb-2">
                 <Form.Label className="fw-bold text-secondary mb-0">Your Photo (Optional)</Form.Label>
-                <small className="text-muted">Allowed: JPG, PNG | Max: 200KB</small>
+                <small className="text-muted">Allowed: JPG, PNG | Max: 2KB</small>
               </div>
               <div 
                 className="border-dashed p-4 text-center bg-light rounded-3" 

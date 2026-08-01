@@ -179,7 +179,7 @@ const BannerManager = () => {
 
                 <Form.Group className="mb-4">
                   <div className="d-flex flex-column mb-2">
-                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>Hero Image</Form.Label>
+                    <Form.Label className="section-title text-secondary mb-1" style={{ fontSize: '1rem' }}>Hero Image <span className="text-danger">*</span></Form.Label>
                     <small className="text-muted">Allowed: .jpg, .jpeg, .png, .gif, .webp | Max size: 200KB</small>
                   </div>
                   <div 

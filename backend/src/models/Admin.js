@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/db.js';
 import bcrypt from 'bcrypt';
 
-const Admin = sequelize.define('Admin', {
+const Admin = sequelize.define('Admin', { 
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -19,6 +19,14 @@ const Admin = sequelize.define('Admin', {
   password: {
     type: DataTypes.TEXT,
     allowNull: false,
+  },
+  resetPasswordToken: {
+    type: DataTypes.STRING(255),
+    allowNull: true,
+  },
+  resetPasswordExpires: {
+    type: DataTypes.DATE,
+    allowNull: true,
   }
 }, {
   tableName: 'admins',
